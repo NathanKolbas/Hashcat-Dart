@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/hashcat"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/hashcat.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/hashcat-complete.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-build.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-configure.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-download.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-install.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-mkdir.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-patch.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/hashcat-prefix/src/hashcat-stamp/hashcat-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"hashcat"
+		],
+		"name" : "hashcat"
+	}
+}

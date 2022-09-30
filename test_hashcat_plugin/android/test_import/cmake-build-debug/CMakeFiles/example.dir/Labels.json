@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/example"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/example.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/CMakeFiles/example-complete.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-build.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-configure.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-download.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-install.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-mkdir.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-patch.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/example-prefix/src/example-stamp/example-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"example"
+		],
+		"name" : "example"
+	}
+}

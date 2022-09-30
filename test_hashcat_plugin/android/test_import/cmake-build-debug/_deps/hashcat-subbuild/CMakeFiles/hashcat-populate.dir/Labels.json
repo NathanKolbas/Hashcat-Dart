@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/hashcat-populate"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/hashcat-populate.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/hashcat-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-build.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-configure.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-download.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-install.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-mkdir.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-patch.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-test.rule"
+		},
+		{
+			"file" : "/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/hashcat-populate-prefix/src/hashcat-populate-stamp/hashcat-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"hashcat-populate"
+		],
+		"name" : "hashcat-populate"
+	}
+}
