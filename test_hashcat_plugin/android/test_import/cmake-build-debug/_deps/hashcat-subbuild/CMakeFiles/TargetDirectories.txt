@@ -1,3 +1,0 @@
-/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/hashcat-populate.dir
-/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/edit_cache.dir
-/Users/nkolbas/Documents/personal/school/CSCE-461/project_testing/test_hashcat_plugin/android/test_import/cmake-build-debug/_deps/hashcat-subbuild/CMakeFiles/rebuild_cache.dir
