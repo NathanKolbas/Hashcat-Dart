@@ -1,0 +1,3 @@
+[submodule "hashcat-mobile"]
+	path = hashcat-mobile
+	url = git@github.com:NathanKolbas/hashcat-mobile.git
