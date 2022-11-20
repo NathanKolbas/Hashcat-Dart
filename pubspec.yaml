@@ -19,6 +19,16 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   ffigen: ^7.2.1
 
+ffigen:
+  name: HashcatBindings
+  description: Bindings needed from Hashcat
+  preamble: | 
+    // ignore_for_file: no_leading_underscores_for_local_identifiers, non_constant_identifier_names, constant_identifier_names, camel_case_types, library_private_types_in_public_api
+  output: 'lib/generated_hashcat_bindings.dart'
+  headers:
+    entry-points:
+      - 'hashcat-mobile/include/hashcat.h'
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
