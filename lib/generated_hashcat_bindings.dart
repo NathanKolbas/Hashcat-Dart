@@ -49333,6 +49333,902 @@ class HashcatBindings {
   late final _user_options_info = _user_options_infoPtr
       .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
 
+  int cfgetispeed(
+    ffi.Pointer<termios> arg0,
+  ) {
+    return _cfgetispeed(
+      arg0,
+    );
+  }
+
+  late final _cfgetispeedPtr =
+      _lookup<ffi.NativeFunction<speed_t Function(ffi.Pointer<termios>)>>(
+          'cfgetispeed');
+  late final _cfgetispeed =
+      _cfgetispeedPtr.asFunction<int Function(ffi.Pointer<termios>)>();
+
+  int cfgetospeed(
+    ffi.Pointer<termios> arg0,
+  ) {
+    return _cfgetospeed(
+      arg0,
+    );
+  }
+
+  late final _cfgetospeedPtr =
+      _lookup<ffi.NativeFunction<speed_t Function(ffi.Pointer<termios>)>>(
+          'cfgetospeed');
+  late final _cfgetospeed =
+      _cfgetospeedPtr.asFunction<int Function(ffi.Pointer<termios>)>();
+
+  int cfsetispeed(
+    ffi.Pointer<termios> arg0,
+    int arg1,
+  ) {
+    return _cfsetispeed(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _cfsetispeedPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<termios>, speed_t)>>(
+      'cfsetispeed');
+  late final _cfsetispeed =
+      _cfsetispeedPtr.asFunction<int Function(ffi.Pointer<termios>, int)>();
+
+  int cfsetospeed(
+    ffi.Pointer<termios> arg0,
+    int arg1,
+  ) {
+    return _cfsetospeed(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _cfsetospeedPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<termios>, speed_t)>>(
+      'cfsetospeed');
+  late final _cfsetospeed =
+      _cfsetospeedPtr.asFunction<int Function(ffi.Pointer<termios>, int)>();
+
+  int tcgetattr(
+    int arg0,
+    ffi.Pointer<termios> arg1,
+  ) {
+    return _tcgetattr(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _tcgetattrPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Pointer<termios>)>>(
+      'tcgetattr');
+  late final _tcgetattr =
+      _tcgetattrPtr.asFunction<int Function(int, ffi.Pointer<termios>)>();
+
+  int tcsetattr(
+    int arg0,
+    int arg1,
+    ffi.Pointer<termios> arg2,
+  ) {
+    return _tcsetattr(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  late final _tcsetattrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Int, ffi.Int, ffi.Pointer<termios>)>>('tcsetattr');
+  late final _tcsetattr =
+      _tcsetattrPtr.asFunction<int Function(int, int, ffi.Pointer<termios>)>();
+
+  int tcdrain(
+    int arg0,
+  ) {
+    return _tcdrain(
+      arg0,
+    );
+  }
+
+  late final _tcdrainPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int)>>('tcdrain');
+  late final _tcdrain = _tcdrainPtr.asFunction<int Function(int)>();
+
+  int tcflow(
+    int arg0,
+    int arg1,
+  ) {
+    return _tcflow(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _tcflowPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>('tcflow');
+  late final _tcflow = _tcflowPtr.asFunction<int Function(int, int)>();
+
+  int tcflush(
+    int arg0,
+    int arg1,
+  ) {
+    return _tcflush(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _tcflushPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>(
+          'tcflush');
+  late final _tcflush = _tcflushPtr.asFunction<int Function(int, int)>();
+
+  int tcsendbreak(
+    int arg0,
+    int arg1,
+  ) {
+    return _tcsendbreak(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _tcsendbreakPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>(
+          'tcsendbreak');
+  late final _tcsendbreak =
+      _tcsendbreakPtr.asFunction<int Function(int, int)>();
+
+  void cfmakeraw(
+    ffi.Pointer<termios> arg0,
+  ) {
+    return _cfmakeraw(
+      arg0,
+    );
+  }
+
+  late final _cfmakerawPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<termios>)>>(
+          'cfmakeraw');
+  late final _cfmakeraw =
+      _cfmakerawPtr.asFunction<void Function(ffi.Pointer<termios>)>();
+
+  int cfsetspeed(
+    ffi.Pointer<termios> arg0,
+    int arg1,
+  ) {
+    return _cfsetspeed(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _cfsetspeedPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<termios>, speed_t)>>(
+      'cfsetspeed');
+  late final _cfsetspeed =
+      _cfsetspeedPtr.asFunction<int Function(ffi.Pointer<termios>, int)>();
+
+  int tcgetsid(
+    int arg0,
+  ) {
+    return _tcgetsid(
+      arg0,
+    );
+  }
+
+  late final _tcgetsidPtr =
+      _lookup<ffi.NativeFunction<pid_t Function(ffi.Int)>>('tcgetsid');
+  late final _tcgetsid = _tcgetsidPtr.asFunction<int Function(int)>();
+
+  int ioctl(
+    int arg0,
+    int arg1,
+  ) {
+    return _ioctl(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _ioctlPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.UnsignedLong)>>(
+          'ioctl');
+  late final _ioctl = _ioctlPtr.asFunction<int Function(int, int)>();
+
+  int uname(
+    ffi.Pointer<utsname> arg0,
+  ) {
+    return _uname(
+      arg0,
+    );
+  }
+
+  late final _unamePtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<utsname>)>>(
+          'uname');
+  late final _uname =
+      _unamePtr.asFunction<int Function(ffi.Pointer<utsname>)>();
+
+  int audit(
+    ffi.Pointer<ffi.Void> arg0,
+    int arg1,
+  ) {
+    return _audit(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _auditPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>, ffi.Int)>>(
+      'audit');
+  late final _audit =
+      _auditPtr.asFunction<int Function(ffi.Pointer<ffi.Void>, int)>();
+
+  int auditon(
+    int arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    int arg2,
+  ) {
+    return _auditon(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  late final _auditonPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Int, ffi.Pointer<ffi.Void>, ffi.Int)>>('auditon');
+  late final _auditon =
+      _auditonPtr.asFunction<int Function(int, ffi.Pointer<ffi.Void>, int)>();
+
+  int auditctl(
+    ffi.Pointer<ffi.Char> arg0,
+  ) {
+    return _auditctl(
+      arg0,
+    );
+  }
+
+  late final _auditctlPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>)>>(
+          'auditctl');
+  late final _auditctl =
+      _auditctlPtr.asFunction<int Function(ffi.Pointer<ffi.Char>)>();
+
+  int getauid(
+    ffi.Pointer<au_id_t> arg0,
+  ) {
+    return _getauid(
+      arg0,
+    );
+  }
+
+  late final _getauidPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<au_id_t>)>>(
+          'getauid');
+  late final _getauid =
+      _getauidPtr.asFunction<int Function(ffi.Pointer<au_id_t>)>();
+
+  int setauid(
+    ffi.Pointer<au_id_t> arg0,
+  ) {
+    return _setauid(
+      arg0,
+    );
+  }
+
+  late final _setauidPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<au_id_t>)>>(
+          'setauid');
+  late final _setauid =
+      _setauidPtr.asFunction<int Function(ffi.Pointer<au_id_t>)>();
+
+  int getaudit_addr(
+    ffi.Pointer<auditinfo_addr> arg0,
+    int arg1,
+  ) {
+    return _getaudit_addr(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _getaudit_addrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Pointer<auditinfo_addr>, ffi.Int)>>('getaudit_addr');
+  late final _getaudit_addr = _getaudit_addrPtr
+      .asFunction<int Function(ffi.Pointer<auditinfo_addr>, int)>();
+
+  int setaudit_addr(
+    ffi.Pointer<auditinfo_addr> arg0,
+    int arg1,
+  ) {
+    return _setaudit_addr(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _setaudit_addrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Pointer<auditinfo_addr>, ffi.Int)>>('setaudit_addr');
+  late final _setaudit_addr = _setaudit_addrPtr
+      .asFunction<int Function(ffi.Pointer<auditinfo_addr>, int)>();
+
+  int getaudit(
+    ffi.Pointer<auditinfo> arg0,
+  ) {
+    return _getaudit(
+      arg0,
+    );
+  }
+
+  late final _getauditPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<auditinfo>)>>(
+          'getaudit');
+  late final _getaudit =
+      _getauditPtr.asFunction<int Function(ffi.Pointer<auditinfo>)>();
+
+  int setaudit(
+    ffi.Pointer<auditinfo> arg0,
+  ) {
+    return _setaudit(
+      arg0,
+    );
+  }
+
+  late final _setauditPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<auditinfo>)>>(
+          'setaudit');
+  late final _setaudit =
+      _setauditPtr.asFunction<int Function(ffi.Pointer<auditinfo>)>();
+
+  int audit_session_self() {
+    return _audit_session_self();
+  }
+
+  late final _audit_session_selfPtr =
+      _lookup<ffi.NativeFunction<mach_port_name_t Function()>>(
+          'audit_session_self');
+  late final _audit_session_self =
+      _audit_session_selfPtr.asFunction<int Function()>();
+
+  int audit_session_join(
+    int port,
+  ) {
+    return _audit_session_join(
+      port,
+    );
+  }
+
+  late final _audit_session_joinPtr =
+      _lookup<ffi.NativeFunction<au_asid_t Function(mach_port_name_t)>>(
+          'audit_session_join');
+  late final _audit_session_join =
+      _audit_session_joinPtr.asFunction<int Function(int)>();
+
+  int audit_session_port(
+    int asid,
+    ffi.Pointer<mach_port_name_t> portname,
+  ) {
+    return _audit_session_port(
+      asid,
+      portname,
+    );
+  }
+
+  late final _audit_session_portPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              au_asid_t, ffi.Pointer<mach_port_name_t>)>>('audit_session_port');
+  late final _audit_session_port = _audit_session_portPtr
+      .asFunction<int Function(int, ffi.Pointer<mach_port_name_t>)>();
+
+  int kqueue() {
+    return _kqueue();
+  }
+
+  late final _kqueuePtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function()>>('kqueue');
+  late final _kqueue = _kqueuePtr.asFunction<int Function()>();
+
+  int kevent1(
+    int kq,
+    ffi.Pointer<kevent> changelist,
+    int nchanges,
+    ffi.Pointer<kevent> eventlist,
+    int nevents,
+    ffi.Pointer<timespec> timeout,
+  ) {
+    return _kevent1(
+      kq,
+      changelist,
+      nchanges,
+      eventlist,
+      nevents,
+      timeout,
+    );
+  }
+
+  late final _kevent1Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Int, ffi.Pointer<kevent>, ffi.Int,
+              ffi.Pointer<kevent>, ffi.Int, ffi.Pointer<timespec>)>>('kevent');
+  late final _kevent1 = _kevent1Ptr.asFunction<
+      int Function(int, ffi.Pointer<kevent>, int, ffi.Pointer<kevent>, int,
+          ffi.Pointer<timespec>)>();
+
+  int kevent64(
+    int kq,
+    ffi.Pointer<kevent64_s> changelist,
+    int nchanges,
+    ffi.Pointer<kevent64_s> eventlist,
+    int nevents,
+    int flags,
+    ffi.Pointer<timespec> timeout,
+  ) {
+    return _kevent64(
+      kq,
+      changelist,
+      nchanges,
+      eventlist,
+      nevents,
+      flags,
+      timeout,
+    );
+  }
+
+  late final _kevent64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Int,
+              ffi.Pointer<kevent64_s>,
+              ffi.Int,
+              ffi.Pointer<kevent64_s>,
+              ffi.Int,
+              ffi.UnsignedInt,
+              ffi.Pointer<timespec>)>>('kevent64');
+  late final _kevent64 = _kevent64Ptr.asFunction<
+      int Function(int, ffi.Pointer<kevent64_s>, int, ffi.Pointer<kevent64_s>,
+          int, int, ffi.Pointer<timespec>)>();
+
+  late final ffi.Pointer<loadavg> _averunnable =
+      _lookup<loadavg>('averunnable');
+
+  loadavg get averunnable => _averunnable.ref;
+
+  int sysctl(
+    ffi.Pointer<ffi.Int> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Void> arg2,
+    ffi.Pointer<ffi.Size> arg3,
+    ffi.Pointer<ffi.Void> arg4,
+    int arg5,
+  ) {
+    return _sysctl(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+    );
+  }
+
+  late final _sysctlPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Pointer<ffi.Int>,
+              u_int,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Size>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Size)>>('sysctl');
+  late final _sysctl = _sysctlPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Int>, int, ffi.Pointer<ffi.Void>,
+          ffi.Pointer<ffi.Size>, ffi.Pointer<ffi.Void>, int)>();
+
+  int sysctlbyname(
+    ffi.Pointer<ffi.Char> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    ffi.Pointer<ffi.Size> arg2,
+    ffi.Pointer<ffi.Void> arg3,
+    int arg4,
+  ) {
+    return _sysctlbyname(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  late final _sysctlbynamePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Pointer<ffi.Char>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Size>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Size)>>('sysctlbyname');
+  late final _sysctlbyname = _sysctlbynamePtr.asFunction<
+      int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Void>,
+          ffi.Pointer<ffi.Size>, ffi.Pointer<ffi.Void>, int)>();
+
+  int sysctlnametomib(
+    ffi.Pointer<ffi.Char> arg0,
+    ffi.Pointer<ffi.Int> arg1,
+    ffi.Pointer<ffi.Size> arg2,
+  ) {
+    return _sysctlnametomib(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  late final _sysctlnametomibPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Int>,
+              ffi.Pointer<ffi.Size>)>>('sysctlnametomib');
+  late final _sysctlnametomib = _sysctlnametomibPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Int>,
+          ffi.Pointer<ffi.Size>)>();
+
+  void welcome_screen(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+    ffi.Pointer<ffi.Char> version_tag,
+  ) {
+    return _welcome_screen(
+      hashcat_ctx,
+      version_tag,
+    );
+  }
+
+  late final _welcome_screenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<hashcat_ctx_t>,
+              ffi.Pointer<ffi.Char>)>>('welcome_screen');
+  late final _welcome_screen = _welcome_screenPtr.asFunction<
+      void Function(ffi.Pointer<hashcat_ctx_t>, ffi.Pointer<ffi.Char>)>();
+
+  void goodbye_screen(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+    int proc_start,
+    int proc_stop,
+  ) {
+    return _goodbye_screen(
+      hashcat_ctx,
+      proc_start,
+      proc_stop,
+    );
+  }
+
+  late final _goodbye_screenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<hashcat_ctx_t>, time_t, time_t)>>('goodbye_screen');
+  late final _goodbye_screen = _goodbye_screenPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>, int, int)>();
+
+  int setup_console() {
+    return _setup_console();
+  }
+
+  late final _setup_consolePtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function()>>('setup_console');
+  late final _setup_console = _setup_consolePtr.asFunction<int Function()>();
+
+  void send_prompt(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _send_prompt(
+      hashcat_ctx,
+    );
+  }
+
+  late final _send_promptPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'send_prompt');
+  late final _send_prompt =
+      _send_promptPtr.asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void clear_prompt(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _clear_prompt(
+      hashcat_ctx,
+    );
+  }
+
+  late final _clear_promptPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'clear_prompt');
+  late final _clear_prompt =
+      _clear_promptPtr.asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  ffi.Pointer<ffi.Void> thread_keypress(
+    ffi.Pointer<ffi.Void> p,
+  ) {
+    return _thread_keypress(
+      p,
+    );
+  }
+
+  late final _thread_keypressPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>)>>('thread_keypress');
+  late final _thread_keypress = _thread_keypressPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
+
+  int tty_break() {
+    return _tty_break();
+  }
+
+  late final _tty_breakPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function()>>('tty_break');
+  late final _tty_break = _tty_breakPtr.asFunction<int Function()>();
+
+  int tty_getchar() {
+    return _tty_getchar();
+  }
+
+  late final _tty_getcharPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function()>>('tty_getchar');
+  late final _tty_getchar = _tty_getcharPtr.asFunction<int Function()>();
+
+  int tty_fix() {
+    return _tty_fix();
+  }
+
+  late final _tty_fixPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function()>>('tty_fix');
+  late final _tty_fix = _tty_fixPtr.asFunction<int Function()>();
+
+  bool is_stdout_terminal() {
+    return _is_stdout_terminal();
+  }
+
+  late final _is_stdout_terminalPtr =
+      _lookup<ffi.NativeFunction<ffi.Bool Function()>>('is_stdout_terminal');
+  late final _is_stdout_terminal =
+      _is_stdout_terminalPtr.asFunction<bool Function()>();
+
+  void compress_terminal_line_length(
+    ffi.Pointer<ffi.Char> out_buf,
+    int keep_from_beginning,
+    int keep_from_end,
+  ) {
+    return _compress_terminal_line_length(
+      out_buf,
+      keep_from_beginning,
+      keep_from_end,
+    );
+  }
+
+  late final _compress_terminal_line_lengthPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ffi.Char>, ffi.Size,
+              ffi.Size)>>('compress_terminal_line_length');
+  late final _compress_terminal_line_length = _compress_terminal_line_lengthPtr
+      .asFunction<void Function(ffi.Pointer<ffi.Char>, int, int)>();
+
+  void hash_info(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _hash_info(
+      hashcat_ctx,
+    );
+  }
+
+  late final _hash_infoPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'hash_info');
+  late final _hash_info =
+      _hash_infoPtr.asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void backend_info(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _backend_info(
+      hashcat_ctx,
+    );
+  }
+
+  late final _backend_infoPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'backend_info');
+  late final _backend_info =
+      _backend_infoPtr.asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void backend_info_compact(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _backend_info_compact(
+      hashcat_ctx,
+    );
+  }
+
+  late final _backend_info_compactPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'backend_info_compact');
+  late final _backend_info_compact = _backend_info_compactPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_progress_machine_readable(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_progress_machine_readable(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_progress_machine_readablePtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_progress_machine_readable');
+  late final _status_progress_machine_readable =
+      _status_progress_machine_readablePtr
+          .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_progress(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_progress(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_progressPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_progress');
+  late final _status_progress = _status_progressPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_speed_machine_readable(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_speed_machine_readable(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_speed_machine_readablePtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_speed_machine_readable');
+  late final _status_speed_machine_readable = _status_speed_machine_readablePtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_speed(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_speed(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_speedPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_speed');
+  late final _status_speed =
+      _status_speedPtr.asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_display_machine_readable(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_display_machine_readable(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_display_machine_readablePtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_display_machine_readable');
+  late final _status_display_machine_readable =
+      _status_display_machine_readablePtr
+          .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_display(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_display(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_displayPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_display');
+  late final _status_display = _status_displayPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_benchmark_machine_readable(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_benchmark_machine_readable(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_benchmark_machine_readablePtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_benchmark_machine_readable');
+  late final _status_benchmark_machine_readable =
+      _status_benchmark_machine_readablePtr
+          .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void status_benchmark(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _status_benchmark(
+      hashcat_ctx,
+    );
+  }
+
+  late final _status_benchmarkPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'status_benchmark');
+  late final _status_benchmark = _status_benchmarkPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void usage_mini_print(
+    ffi.Pointer<ffi.Char> progname,
+  ) {
+    return _usage_mini_print(
+      progname,
+    );
+  }
+
+  late final _usage_mini_printPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'usage_mini_print');
+  late final _usage_mini_print =
+      _usage_mini_printPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  void usage_big_print(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _usage_big_print(
+      hashcat_ctx,
+    );
+  }
+
+  late final _usage_big_printPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'usage_big_print');
+  late final _usage_big_print = _usage_big_printPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  int sort_by_usage(
+    ffi.Pointer<ffi.Void> p1,
+    ffi.Pointer<ffi.Void> p2,
+  ) {
+    return _sort_by_usage(
+      p1,
+      p2,
+    );
+  }
+
+  late final _sort_by_usagePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>('sort_by_usage');
+  late final _sort_by_usage = _sort_by_usagePtr
+      .asFunction<int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
   int hashcat_init(
     ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
     ffi.Pointer<
@@ -64209,6 +65105,641 @@ class option extends ffi.Struct {
   external int val;
 }
 
+class termios extends ffi.Struct {
+  @tcflag_t()
+  external int c_iflag;
+
+  @tcflag_t()
+  external int c_oflag;
+
+  @tcflag_t()
+  external int c_cflag;
+
+  @tcflag_t()
+  external int c_lflag;
+
+  @ffi.Array.multi([20])
+  external ffi.Array<cc_t> c_cc;
+
+  @speed_t()
+  external int c_ispeed;
+
+  @speed_t()
+  external int c_ospeed;
+}
+
+typedef tcflag_t = ffi.UnsignedLong;
+typedef cc_t = ffi.UnsignedChar;
+typedef speed_t = ffi.UnsignedLong;
+
+class winsize extends ffi.Struct {
+  @ffi.UnsignedShort()
+  external int ws_row;
+
+  @ffi.UnsignedShort()
+  external int ws_col;
+
+  @ffi.UnsignedShort()
+  external int ws_xpixel;
+
+  @ffi.UnsignedShort()
+  external int ws_ypixel;
+}
+
+class ttysize extends ffi.Struct {
+  @ffi.UnsignedShort()
+  external int ts_lines;
+
+  @ffi.UnsignedShort()
+  external int ts_cols;
+
+  @ffi.UnsignedShort()
+  external int ts_xxx;
+
+  @ffi.UnsignedShort()
+  external int ts_yyy;
+}
+
+class utsname extends ffi.Struct {
+  @ffi.Array.multi([256])
+  external ffi.Array<ffi.Char> sysname;
+
+  @ffi.Array.multi([256])
+  external ffi.Array<ffi.Char> nodename;
+
+  @ffi.Array.multi([256])
+  external ffi.Array<ffi.Char> release;
+
+  @ffi.Array.multi([256])
+  external ffi.Array<ffi.Char> version;
+
+  @ffi.Array.multi([256])
+  external ffi.Array<ffi.Char> machine;
+}
+
+class au_tid extends ffi.Struct {
+  @dev_t()
+  external int port;
+
+  @u_int32_t()
+  external int machine;
+}
+
+class au_tid_addr extends ffi.Struct {
+  @dev_t()
+  external int at_port;
+
+  @u_int32_t()
+  external int at_type;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<u_int32_t> at_addr;
+}
+
+class au_mask extends ffi.Struct {
+  @ffi.UnsignedInt()
+  external int am_success;
+
+  @ffi.UnsignedInt()
+  external int am_failure;
+}
+
+class auditinfo extends ffi.Struct {
+  @au_id_t()
+  external int ai_auid;
+
+  external au_mask_t ai_mask;
+
+  external au_tid_t ai_termid;
+
+  @au_asid_t()
+  external int ai_asid;
+}
+
+typedef au_id_t = uid_t;
+typedef au_mask_t = au_mask;
+typedef au_tid_t = au_tid;
+typedef au_asid_t = pid_t;
+
+class auditinfo_addr extends ffi.Struct {
+  @au_id_t()
+  external int ai_auid;
+
+  external au_mask_t ai_mask;
+
+  external au_tid_addr_t ai_termid;
+
+  @au_asid_t()
+  external int ai_asid;
+
+  @au_asflgs_t()
+  external int ai_flags;
+}
+
+typedef au_tid_addr_t = au_tid_addr;
+typedef au_asflgs_t = u_int64_t;
+
+class auditpinfo extends ffi.Struct {
+  @pid_t()
+  external int ap_pid;
+
+  @au_id_t()
+  external int ap_auid;
+
+  external au_mask_t ap_mask;
+
+  external au_tid_t ap_termid;
+
+  @au_asid_t()
+  external int ap_asid;
+}
+
+class auditpinfo_addr extends ffi.Struct {
+  @pid_t()
+  external int ap_pid;
+
+  @au_id_t()
+  external int ap_auid;
+
+  external au_mask_t ap_mask;
+
+  external au_tid_addr_t ap_termid;
+
+  @au_asid_t()
+  external int ap_asid;
+
+  @au_asflgs_t()
+  external int ap_flags;
+}
+
+class au_session extends ffi.Struct {
+  external ffi.Pointer<auditinfo_addr_t> as_aia_p;
+
+  external au_mask_t as_mask;
+}
+
+typedef auditinfo_addr_t = auditinfo_addr;
+
+class au_expire_after extends ffi.Struct {
+  @time_t()
+  external int age;
+
+  @ffi.Size()
+  external int size;
+
+  @ffi.UnsignedChar()
+  external int op_type;
+}
+
+class au_token extends ffi.Opaque {}
+
+class au_qctrl extends ffi.Struct {
+  @ffi.Int()
+  external int aq_hiwater;
+
+  @ffi.Int()
+  external int aq_lowater;
+
+  @ffi.Int()
+  external int aq_bufsz;
+
+  @ffi.Int()
+  external int aq_delay;
+
+  @ffi.Int()
+  external int aq_minfree;
+}
+
+class audit_stat extends ffi.Struct {
+  @ffi.UnsignedInt()
+  external int as_version;
+
+  @ffi.UnsignedInt()
+  external int as_numevent;
+
+  @ffi.Int()
+  external int as_generated;
+
+  @ffi.Int()
+  external int as_nonattrib;
+
+  @ffi.Int()
+  external int as_kernel;
+
+  @ffi.Int()
+  external int as_audit;
+
+  @ffi.Int()
+  external int as_auditctl;
+
+  @ffi.Int()
+  external int as_enqueue;
+
+  @ffi.Int()
+  external int as_written;
+
+  @ffi.Int()
+  external int as_wblocked;
+
+  @ffi.Int()
+  external int as_rblocked;
+
+  @ffi.Int()
+  external int as_dropped;
+
+  @ffi.Int()
+  external int as_totalsize;
+
+  @ffi.UnsignedInt()
+  external int as_memused;
+}
+
+class audit_fstat extends ffi.Struct {
+  @u_int64_t()
+  external int af_filesz;
+
+  @u_int64_t()
+  external int af_currsz;
+}
+
+class au_evclass_map extends ffi.Struct {
+  @au_event_t()
+  external int ec_number;
+
+  @au_class_t()
+  external int ec_class;
+}
+
+typedef au_event_t = u_int16_t;
+typedef u_int16_t = ffi.UnsignedShort;
+typedef au_class_t = u_int32_t;
+
+class label extends ffi.Opaque {}
+
+class ucred extends ffi.Opaque {}
+
+class posix_cred extends ffi.Opaque {}
+
+class xucred extends ffi.Struct {
+  @u_int()
+  external int cr_version;
+
+  @uid_t()
+  external int cr_uid;
+
+  @ffi.Short()
+  external int cr_ngroups;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<gid_t> cr_groups;
+}
+
+typedef u_int = ffi.UnsignedInt;
+
+@ffi.Packed(4)
+class kevent extends ffi.Struct {
+  @uintptr_t()
+  external int ident;
+
+  @ffi.Int16()
+  external int filter;
+
+  @ffi.Uint16()
+  external int flags;
+
+  @ffi.Uint32()
+  external int fflags;
+
+  @ffi.IntPtr()
+  external int data;
+
+  external ffi.Pointer<ffi.Void> udata;
+}
+
+class kevent64_s extends ffi.Struct {
+  @ffi.Uint64()
+  external int ident;
+
+  @ffi.Int16()
+  external int filter;
+
+  @ffi.Uint16()
+  external int flags;
+
+  @ffi.Uint32()
+  external int fflags;
+
+  @ffi.Int64()
+  external int data;
+
+  @ffi.Uint64()
+  external int udata;
+
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Uint64> ext;
+}
+
+class knote extends ffi.Opaque {}
+
+class klist extends ffi.Struct {
+  external ffi.Pointer<knote> slh_first;
+}
+
+class session extends ffi.Opaque {}
+
+class pgrp extends ffi.Opaque {}
+
+class proc extends ffi.Opaque {}
+
+class proc_ident extends ffi.Opaque {}
+
+class extern_proc extends ffi.Struct {
+  external UnnamedUnion2 p_un;
+
+  external ffi.Pointer<vmspace> p_vmspace;
+
+  external ffi.Pointer<sigacts> p_sigacts;
+
+  @ffi.Int()
+  external int p_flag;
+
+  @ffi.Char()
+  external int p_stat;
+
+  @pid_t()
+  external int p_pid;
+
+  @pid_t()
+  external int p_oppid;
+
+  @ffi.Int()
+  external int p_dupfd;
+
+  external caddr_t user_stack;
+
+  external ffi.Pointer<ffi.Void> exit_thread;
+
+  @ffi.Int()
+  external int p_debugger;
+
+  @boolean_t()
+  external int sigwait;
+
+  @u_int()
+  external int p_estcpu;
+
+  @ffi.Int()
+  external int p_cpticks;
+
+  @fixpt_t()
+  external int p_pctcpu;
+
+  external ffi.Pointer<ffi.Void> p_wchan;
+
+  external ffi.Pointer<ffi.Char> p_wmesg;
+
+  @u_int()
+  external int p_swtime;
+
+  @u_int()
+  external int p_slptime;
+
+  external itimerval p_realtimer;
+
+  external timeval p_rtime;
+
+  @u_quad_t()
+  external int p_uticks;
+
+  @u_quad_t()
+  external int p_sticks;
+
+  @u_quad_t()
+  external int p_iticks;
+
+  @ffi.Int()
+  external int p_traceflag;
+
+  external ffi.Pointer<vnode> p_tracep;
+
+  @ffi.Int()
+  external int p_siglist;
+
+  external ffi.Pointer<vnode> p_textvp;
+
+  @ffi.Int()
+  external int p_holdcnt;
+
+  @sigset_t()
+  external int p_sigmask;
+
+  @sigset_t()
+  external int p_sigignore;
+
+  @sigset_t()
+  external int p_sigcatch;
+
+  @u_char()
+  external int p_priority;
+
+  @u_char()
+  external int p_usrpri;
+
+  @ffi.Char()
+  external int p_nice;
+
+  @ffi.Array.multi([17])
+  external ffi.Array<ffi.Char> p_comm;
+
+  external ffi.Pointer<pgrp> p_pgrp;
+
+  external ffi.Pointer<user> p_addr;
+
+  @u_short()
+  external int p_xstat;
+
+  @u_short()
+  external int p_acflag;
+
+  external ffi.Pointer<rusage> p_ru;
+}
+
+class UnnamedUnion2 extends ffi.Union {
+  external UnnamedStruct5 p_st1;
+
+  external timeval __p_starttime;
+}
+
+class UnnamedStruct5 extends ffi.Struct {
+  external ffi.Pointer<proc> __p_forw;
+
+  external ffi.Pointer<proc> __p_back;
+}
+
+class vmspace extends ffi.Struct {
+  @ffi.Int32()
+  external int dummy;
+
+  external caddr_t dummy2;
+
+  @ffi.Array.multi([5])
+  external ffi.Array<ffi.Int32> dummy3;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<caddr_t> dummy4;
+}
+
+typedef caddr_t = ffi.Pointer<ffi.Char>;
+
+class sigacts extends ffi.Opaque {}
+
+typedef fixpt_t = u_int32_t;
+typedef u_quad_t = u_int64_t;
+
+class vnode extends ffi.Opaque {}
+
+typedef u_char = ffi.UnsignedChar;
+typedef u_short = ffi.UnsignedShort;
+
+class ctlname extends ffi.Struct {
+  external ffi.Pointer<ffi.Char> ctl_name;
+
+  @ffi.Int()
+  external int ctl_type;
+}
+
+class _pcred extends ffi.Struct {
+  @ffi.Array.multi([72])
+  external ffi.Array<ffi.Char> pc_lock;
+
+  external ffi.Pointer<ucred> pc_ucred;
+
+  @uid_t()
+  external int p_ruid;
+
+  @uid_t()
+  external int p_svuid;
+
+  @gid_t()
+  external int p_rgid;
+
+  @gid_t()
+  external int p_svgid;
+
+  @ffi.Int()
+  external int p_refcnt;
+}
+
+class _ucred extends ffi.Struct {
+  @ffi.Int32()
+  external int cr_ref;
+
+  @uid_t()
+  external int cr_uid;
+
+  @ffi.Short()
+  external int cr_ngroups;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<gid_t> cr_groups;
+}
+
+class kinfo_proc extends ffi.Struct {
+  external extern_proc kp_proc;
+
+  external eproc kp_eproc;
+}
+
+class eproc extends ffi.Struct {
+  external ffi.Pointer<proc> e_paddr;
+
+  external ffi.Pointer<session> e_sess;
+
+  external _pcred e_pcred;
+
+  external _ucred e_ucred;
+
+  external vmspace e_vm;
+
+  @pid_t()
+  external int e_ppid;
+
+  @pid_t()
+  external int e_pgid;
+
+  @ffi.Short()
+  external int e_jobc;
+
+  @dev_t()
+  external int e_tdev;
+
+  @pid_t()
+  external int e_tpgid;
+
+  external ffi.Pointer<session> e_tsess;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Char> e_wmesg;
+
+  @segsz_t()
+  external int e_xsize;
+
+  @ffi.Short()
+  external int e_xrssize;
+
+  @ffi.Short()
+  external int e_xccount;
+
+  @ffi.Short()
+  external int e_xswrss;
+
+  @ffi.Int32()
+  external int e_flag;
+
+  @ffi.Array.multi([12])
+  external ffi.Array<ffi.Char> e_login;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Int32> e_spare;
+}
+
+typedef segsz_t = ffi.Int32;
+
+class xsw_usage extends ffi.Struct {
+  @u_int64_t()
+  external int xsu_total;
+
+  @u_int64_t()
+  external int xsu_avail;
+
+  @u_int64_t()
+  external int xsu_used;
+
+  @u_int32_t()
+  external int xsu_pagesize;
+
+  @boolean_t()
+  external int xsu_encrypted;
+}
+
+class loadavg extends ffi.Struct {
+  @ffi.Array.multi([3])
+  external ffi.Array<fixpt_t> ldavg;
+
+  @ffi.Long()
+  external int fscale;
+}
+
+class usage_sort extends ffi.Struct {
+  @u32()
+  external int hash_mode;
+
+  external ffi.Pointer<ffi.Char> hash_name;
+
+  @u32()
+  external int hash_category;
+}
+
 const int QOS_CLASS_USER_INTERACTIVE = 33;
 
 const int QOS_CLASS_USER_INITIATED = 25;
@@ -65356,6 +66887,10 @@ const int kIOServiceInteractionAllowed = 1;
 const int kIORegistryIterateRecursively = 1;
 
 const int kIORegistryIterateParents = 2;
+
+const int eNoteReapDeprecated = 268435456;
+
+const int eNoteExitReparentedDeprecated = 524288;
 
 const String PROGNAME = 'hashcat';
 
@@ -67444,7 +68979,7 @@ const int CL_HAS_NAMED_VECTOR_FIELDS = 1;
 const int CL_HAS_HI_LO_VECTOR_FIELDS = 1;
 
 const String CL_PROGRAM_STRING_DEBUG_INFO =
-    '#line 1932 "/var/folders/yb/xfw1ct9d38v_f9wpjpqrzc4m0000gq/T/Y28kuc/temp_for_macros.hpp" \n\n';
+    '#line 1932 "/var/folders/yb/xfw1ct9d38v_f9wpjpqrzc4m0000gq/T/atbQ1w/temp_for_macros.hpp" \n\n';
 
 const int CL_SUCCESS = 0;
 
@@ -72354,3 +73889,1421 @@ const int no_argument = 0;
 const int required_argument = 1;
 
 const int optional_argument = 2;
+
+const int VEOF = 0;
+
+const int VEOL = 1;
+
+const int VEOL2 = 2;
+
+const int VERASE = 3;
+
+const int VWERASE = 4;
+
+const int VKILL = 5;
+
+const int VREPRINT = 6;
+
+const int VINTR = 8;
+
+const int VQUIT = 9;
+
+const int VSUSP = 10;
+
+const int VDSUSP = 11;
+
+const int VSTART = 12;
+
+const int VSTOP = 13;
+
+const int VLNEXT = 14;
+
+const int VDISCARD = 15;
+
+const int VMIN = 16;
+
+const int VTIME = 17;
+
+const int VSTATUS = 18;
+
+const int NCCS = 20;
+
+const int IGNBRK = 1;
+
+const int BRKINT = 2;
+
+const int IGNPAR = 4;
+
+const int PARMRK = 8;
+
+const int INPCK = 16;
+
+const int ISTRIP = 32;
+
+const int INLCR = 64;
+
+const int IGNCR = 128;
+
+const int ICRNL = 256;
+
+const int IXON = 512;
+
+const int IXOFF = 1024;
+
+const int IXANY = 2048;
+
+const int IMAXBEL = 8192;
+
+const int IUTF8 = 16384;
+
+const int OPOST = 1;
+
+const int ONLCR = 2;
+
+const int OXTABS = 4;
+
+const int ONOEOT = 8;
+
+const int OCRNL = 16;
+
+const int ONOCR = 32;
+
+const int ONLRET = 64;
+
+const int OFILL = 128;
+
+const int NLDLY = 768;
+
+const int TABDLY = 3076;
+
+const int CRDLY = 12288;
+
+const int FFDLY = 16384;
+
+const int BSDLY = 32768;
+
+const int VTDLY = 65536;
+
+const int OFDEL = 131072;
+
+const int NL0 = 0;
+
+const int NL1 = 256;
+
+const int NL2 = 512;
+
+const int NL3 = 768;
+
+const int TAB0 = 0;
+
+const int TAB1 = 1024;
+
+const int TAB2 = 2048;
+
+const int TAB3 = 4;
+
+const int CR0 = 0;
+
+const int CR1 = 4096;
+
+const int CR2 = 8192;
+
+const int CR3 = 12288;
+
+const int FF0 = 0;
+
+const int FF1 = 16384;
+
+const int BS0 = 0;
+
+const int BS1 = 32768;
+
+const int VT0 = 0;
+
+const int VT1 = 65536;
+
+const int CIGNORE = 1;
+
+const int CSIZE = 768;
+
+const int CS5 = 0;
+
+const int CS6 = 256;
+
+const int CS7 = 512;
+
+const int CS8 = 768;
+
+const int CSTOPB = 1024;
+
+const int CREAD = 2048;
+
+const int PARENB = 4096;
+
+const int PARODD = 8192;
+
+const int HUPCL = 16384;
+
+const int CLOCAL = 32768;
+
+const int CCTS_OFLOW = 65536;
+
+const int CRTSCTS = 196608;
+
+const int CRTS_IFLOW = 131072;
+
+const int CDTR_IFLOW = 262144;
+
+const int CDSR_OFLOW = 524288;
+
+const int CCAR_OFLOW = 1048576;
+
+const int MDMBUF = 1048576;
+
+const int ECHOKE = 1;
+
+const int ECHOE = 2;
+
+const int ECHOK = 4;
+
+const int ECHO = 8;
+
+const int ECHONL = 16;
+
+const int ECHOPRT = 32;
+
+const int ECHOCTL = 64;
+
+const int ISIG = 128;
+
+const int ICANON = 256;
+
+const int ALTWERASE = 512;
+
+const int IEXTEN = 1024;
+
+const int EXTPROC = 2048;
+
+const int TOSTOP = 4194304;
+
+const int FLUSHO = 8388608;
+
+const int NOKERNINFO = 33554432;
+
+const int PENDIN = 536870912;
+
+const int NOFLSH = 2147483648;
+
+const int TCSANOW = 0;
+
+const int TCSADRAIN = 1;
+
+const int TCSAFLUSH = 2;
+
+const int TCSASOFT = 16;
+
+const int B0 = 0;
+
+const int B50 = 50;
+
+const int B75 = 75;
+
+const int B110 = 110;
+
+const int B134 = 134;
+
+const int B150 = 150;
+
+const int B200 = 200;
+
+const int B300 = 300;
+
+const int B600 = 600;
+
+const int B1200 = 1200;
+
+const int B1800 = 1800;
+
+const int B2400 = 2400;
+
+const int B4800 = 4800;
+
+const int B9600 = 9600;
+
+const int B19200 = 19200;
+
+const int B38400 = 38400;
+
+const int B7200 = 7200;
+
+const int B14400 = 14400;
+
+const int B28800 = 28800;
+
+const int B57600 = 57600;
+
+const int B76800 = 76800;
+
+const int B115200 = 115200;
+
+const int B230400 = 230400;
+
+const int EXTA = 19200;
+
+const int EXTB = 38400;
+
+const int TCIFLUSH = 1;
+
+const int TCOFLUSH = 2;
+
+const int TCIOFLUSH = 3;
+
+const int TCOOFF = 1;
+
+const int TCOON = 2;
+
+const int TCIOFF = 3;
+
+const int TCION = 4;
+
+const int IOCPARM_MASK = 8191;
+
+const int IOCPARM_MAX = 8192;
+
+const int TIOCM_LE = 1;
+
+const int TIOCM_DTR = 2;
+
+const int TIOCM_RTS = 4;
+
+const int TIOCM_ST = 8;
+
+const int TIOCM_SR = 16;
+
+const int TIOCM_CTS = 32;
+
+const int TIOCM_CAR = 64;
+
+const int TIOCM_CD = 64;
+
+const int TIOCM_RNG = 128;
+
+const int TIOCM_RI = 128;
+
+const int TIOCM_DSR = 256;
+
+const int TIOCPKT_DATA = 0;
+
+const int TIOCPKT_FLUSHREAD = 1;
+
+const int TIOCPKT_FLUSHWRITE = 2;
+
+const int TIOCPKT_STOP = 4;
+
+const int TIOCPKT_START = 8;
+
+const int TIOCPKT_NOSTOP = 16;
+
+const int TIOCPKT_DOSTOP = 32;
+
+const int TIOCPKT_IOCTL = 64;
+
+const int TTYDISC = 0;
+
+const int TABLDISC = 3;
+
+const int SLIPDISC = 4;
+
+const int PPPDISC = 5;
+
+const int TTYDEF_IFLAG = 11010;
+
+const int TTYDEF_OFLAG = 3;
+
+const int TTYDEF_LFLAG = 1483;
+
+const int TTYDEF_CFLAG = 19200;
+
+const int TTYDEF_SPEED = 9600;
+
+const int CEOF = 4;
+
+const int CEOL = 255;
+
+const int CERASE = 127;
+
+const int CINTR = 3;
+
+const int CSTATUS = 20;
+
+const int CKILL = 21;
+
+const int CMIN = 1;
+
+const int CQUIT = 28;
+
+const int CSUSP = 26;
+
+const int CTIME = 0;
+
+const int CDSUSP = 25;
+
+const int CSTART = 17;
+
+const int CSTOP = 19;
+
+const int CLNEXT = 22;
+
+const int CDISCARD = 15;
+
+const int CWERASE = 23;
+
+const int CREPRINT = 18;
+
+const int CEOT = 4;
+
+const int CBRK = 255;
+
+const int CRPRNT = 18;
+
+const int CFLUSH = 15;
+
+const int _SYS_NAMELEN = 256;
+
+const int BSD = 199506;
+
+const int BSD4_3 = 1;
+
+const int BSD4_4 = 1;
+
+const int NeXTBSD = 1995064;
+
+const int NeXTBSD4_0 = 0;
+
+const int MAXCOMLEN = 16;
+
+const int MAXINTERP = 64;
+
+const int MAXLOGNAME = 255;
+
+const int MAXUPRC = 266;
+
+const int NCARGS = 1048576;
+
+const int NGROUPS = 16;
+
+const int NOFILE = 256;
+
+const int NOGROUP = 65535;
+
+const int MAXHOSTNAMELEN = 256;
+
+const int MAXDOMNAMELEN = 256;
+
+const int NBPG = 4096;
+
+const int PGOFSET = 4095;
+
+const int PGSHIFT = 12;
+
+const int DEV_BSIZE = 512;
+
+const int DEV_BSHIFT = 9;
+
+const int BLKDEV_IOSIZE = 2048;
+
+const int MAXPHYS = 65536;
+
+const int CLSIZE = 1;
+
+const int CLSIZELOG2 = 0;
+
+const int MSIZESHIFT = 8;
+
+const int MSIZE = 256;
+
+const int MCLSHIFT = 11;
+
+const int MCLBYTES = 2048;
+
+const int MBIGCLSHIFT = 12;
+
+const int MBIGCLBYTES = 4096;
+
+const int M16KCLSHIFT = 14;
+
+const int M16KCLBYTES = 16384;
+
+const int MCLOFSET = 2047;
+
+const int PSWP = 0;
+
+const int PVM = 4;
+
+const int PINOD = 8;
+
+const int PRIBIO = 16;
+
+const int PVFS = 20;
+
+const int PZERO = 22;
+
+const int PSOCK = 24;
+
+const int PWAIT = 32;
+
+const int PLOCK = 36;
+
+const int PPAUSE = 40;
+
+const int PUSER = 50;
+
+const int MAXPRI = 127;
+
+const int PRIMASK = 255;
+
+const int PCATCH = 256;
+
+const int PTTYBLOCK = 512;
+
+const int PDROP = 1024;
+
+const int PSPIN = 2048;
+
+const int NBPW = 4;
+
+const int CMASK = 18;
+
+const int CLBYTES = 4096;
+
+const int CLOFSET = 4095;
+
+const int CLOFF = 4095;
+
+const int CLSHIFT = 12;
+
+const int CBLOCK = 64;
+
+const int CBQSIZE = 8;
+
+const int CBSIZE = 48;
+
+const int CROUND = 63;
+
+const int MAXBSIZE = 1048576;
+
+const int MAXPHYSIO = 65536;
+
+const int MAXFRAG = 8;
+
+const int MAXPHYSIO_WIRED = 16777216;
+
+const int MAXPATHLEN = 1024;
+
+const int MAXSYMLINKS = 32;
+
+const int FSHIFT = 11;
+
+const int FSCALE = 2048;
+
+const int AUDIT_RECORD_MAGIC = 2190085915;
+
+const int MAX_AUDIT_RECORDS = 20;
+
+const int MAXAUDITDATA = 32767;
+
+const int MAX_AUDIT_RECORD_SIZE = 32767;
+
+const int MIN_AUDIT_FILE_SIZE = 524288;
+
+const int AUDIT_HARD_LIMIT_FREE_BLOCKS = 4;
+
+const int AUDIT_TRIGGER_MIN = 1;
+
+const int AUDIT_TRIGGER_LOW_SPACE = 1;
+
+const int AUDIT_TRIGGER_ROTATE_KERNEL = 2;
+
+const int AUDIT_TRIGGER_READ_FILE = 3;
+
+const int AUDIT_TRIGGER_CLOSE_AND_DIE = 4;
+
+const int AUDIT_TRIGGER_NO_SPACE = 5;
+
+const int AUDIT_TRIGGER_ROTATE_USER = 6;
+
+const int AUDIT_TRIGGER_INITIALIZE = 7;
+
+const int AUDIT_TRIGGER_EXPIRE_TRAILS = 8;
+
+const int AUDIT_TRIGGER_MAX = 8;
+
+const String AUDITDEV_FILENAME = 'audit';
+
+const int AU_DEFAUDITSID = 0;
+
+const int AU_ASSIGN_ASID = -1;
+
+const int AT_IPC_MSG = 1;
+
+const int AT_IPC_SEM = 2;
+
+const int AT_IPC_SHM = 3;
+
+const int AUC_UNSET = 0;
+
+const int AUC_AUDITING = 1;
+
+const int AUC_NOAUDIT = 2;
+
+const int AUC_DISABLED = -1;
+
+const int A_OLDGETPOLICY = 2;
+
+const int A_OLDSETPOLICY = 3;
+
+const int A_GETKMASK = 4;
+
+const int A_SETKMASK = 5;
+
+const int A_OLDGETQCTRL = 6;
+
+const int A_OLDSETQCTRL = 7;
+
+const int A_GETCWD = 8;
+
+const int A_GETCAR = 9;
+
+const int A_GETSTAT = 12;
+
+const int A_SETSTAT = 13;
+
+const int A_SETUMASK = 14;
+
+const int A_SETSMASK = 15;
+
+const int A_OLDGETCOND = 20;
+
+const int A_OLDSETCOND = 21;
+
+const int A_GETCLASS = 22;
+
+const int A_SETCLASS = 23;
+
+const int A_GETPINFO = 24;
+
+const int A_SETPMASK = 25;
+
+const int A_SETFSIZE = 26;
+
+const int A_GETFSIZE = 27;
+
+const int A_GETPINFO_ADDR = 28;
+
+const int A_GETKAUDIT = 29;
+
+const int A_SETKAUDIT = 30;
+
+const int A_SENDTRIGGER = 31;
+
+const int A_GETSINFO_ADDR = 32;
+
+const int A_GETPOLICY = 33;
+
+const int A_SETPOLICY = 34;
+
+const int A_GETQCTRL = 35;
+
+const int A_SETQCTRL = 36;
+
+const int A_GETCOND = 37;
+
+const int A_SETCOND = 38;
+
+const int A_GETSFLAGS = 39;
+
+const int A_SETSFLAGS = 40;
+
+const int A_GETCTLMODE = 41;
+
+const int A_SETCTLMODE = 42;
+
+const int A_GETEXPAFTER = 43;
+
+const int A_SETEXPAFTER = 44;
+
+const int AUDIT_CNT = 1;
+
+const int AUDIT_AHLT = 2;
+
+const int AUDIT_ARGV = 4;
+
+const int AUDIT_ARGE = 8;
+
+const int AUDIT_SEQ = 16;
+
+const int AUDIT_WINDATA = 32;
+
+const int AUDIT_USER = 64;
+
+const int AUDIT_GROUP = 128;
+
+const int AUDIT_TRAIL = 256;
+
+const int AUDIT_PATH = 512;
+
+const int AUDIT_SCNT = 1024;
+
+const int AUDIT_PUBLIC = 2048;
+
+const int AUDIT_ZONENAME = 4096;
+
+const int AUDIT_PERZONE = 8192;
+
+const int AQ_HIWATER = 100;
+
+const int AQ_MAXHIGH = 10000;
+
+const int AQ_LOWATER = 10;
+
+const int AQ_BUFSZ = 32767;
+
+const int AQ_MAXBUFSZ = 1048576;
+
+const int AU_FS_MINFREE = 20;
+
+const int AU_IPv4 = 4;
+
+const int AU_IPv6 = 16;
+
+const int AU_CLASS_MASK_RESERVED = 268435456;
+
+const int AUDIT_CTLMODE_NORMAL = 1;
+
+const int AUDIT_CTLMODE_EXTERNAL = 2;
+
+const int AUDIT_EXPIRE_OP_AND = 0;
+
+const int AUDIT_EXPIRE_OP_OR = 1;
+
+const int CRF_NOMEMBERD = 1;
+
+const int CRF_MAC_ENFORCE = 2;
+
+const int XUCRED_VERSION = 0;
+
+const int EVFILT_READ = -1;
+
+const int EVFILT_WRITE = -2;
+
+const int EVFILT_AIO = -3;
+
+const int EVFILT_VNODE = -4;
+
+const int EVFILT_PROC = -5;
+
+const int EVFILT_SIGNAL = -6;
+
+const int EVFILT_TIMER = -7;
+
+const int EVFILT_MACHPORT = -8;
+
+const int EVFILT_FS = -9;
+
+const int EVFILT_USER = -10;
+
+const int EVFILT_VM = -12;
+
+const int EVFILT_EXCEPT = -15;
+
+const int EVFILT_SYSCOUNT = 17;
+
+const int EVFILT_THREADMARKER = 17;
+
+const int KEVENT_FLAG_NONE = 0;
+
+const int KEVENT_FLAG_IMMEDIATE = 1;
+
+const int KEVENT_FLAG_ERROR_EVENTS = 2;
+
+const int EV_ADD = 1;
+
+const int EV_DELETE = 2;
+
+const int EV_ENABLE = 4;
+
+const int EV_DISABLE = 8;
+
+const int EV_ONESHOT = 16;
+
+const int EV_CLEAR = 32;
+
+const int EV_RECEIPT = 64;
+
+const int EV_DISPATCH = 128;
+
+const int EV_UDATA_SPECIFIC = 256;
+
+const int EV_DISPATCH2 = 384;
+
+const int EV_VANISHED = 512;
+
+const int EV_SYSFLAGS = 61440;
+
+const int EV_FLAG0 = 4096;
+
+const int EV_FLAG1 = 8192;
+
+const int EV_EOF = 32768;
+
+const int EV_ERROR = 16384;
+
+const int EV_POLL = 4096;
+
+const int EV_OOBAND = 8192;
+
+const int NOTE_TRIGGER = 16777216;
+
+const int NOTE_FFNOP = 0;
+
+const int NOTE_FFAND = 1073741824;
+
+const int NOTE_FFOR = 2147483648;
+
+const int NOTE_FFCOPY = 3221225472;
+
+const int NOTE_FFCTRLMASK = 3221225472;
+
+const int NOTE_FFLAGSMASK = 16777215;
+
+const int NOTE_LOWAT = 1;
+
+const int NOTE_OOB = 2;
+
+const int NOTE_DELETE = 1;
+
+const int NOTE_WRITE = 2;
+
+const int NOTE_EXTEND = 4;
+
+const int NOTE_ATTRIB = 8;
+
+const int NOTE_LINK = 16;
+
+const int NOTE_RENAME = 32;
+
+const int NOTE_REVOKE = 64;
+
+const int NOTE_NONE = 128;
+
+const int NOTE_FUNLOCK = 256;
+
+const int NOTE_EXIT = 2147483648;
+
+const int NOTE_FORK = 1073741824;
+
+const int NOTE_EXEC = 536870912;
+
+const int NOTE_SIGNAL = 134217728;
+
+const int NOTE_EXITSTATUS = 67108864;
+
+const int NOTE_EXIT_DETAIL = 33554432;
+
+const int NOTE_PDATAMASK = 1048575;
+
+const int NOTE_PCTRLMASK = -1048576;
+
+const int NOTE_EXIT_DETAIL_MASK = 458752;
+
+const int NOTE_EXIT_DECRYPTFAIL = 65536;
+
+const int NOTE_EXIT_MEMORY = 131072;
+
+const int NOTE_EXIT_CSERROR = 262144;
+
+const int NOTE_VM_PRESSURE = 2147483648;
+
+const int NOTE_VM_PRESSURE_TERMINATE = 1073741824;
+
+const int NOTE_VM_PRESSURE_SUDDEN_TERMINATE = 536870912;
+
+const int NOTE_VM_ERROR = 268435456;
+
+const int NOTE_SECONDS = 1;
+
+const int NOTE_USECONDS = 2;
+
+const int NOTE_NSECONDS = 4;
+
+const int NOTE_ABSOLUTE = 8;
+
+const int NOTE_LEEWAY = 16;
+
+const int NOTE_CRITICAL = 32;
+
+const int NOTE_BACKGROUND = 64;
+
+const int NOTE_MACH_CONTINUOUS_TIME = 128;
+
+const int NOTE_MACHTIME = 256;
+
+const int NOTE_TRACK = 1;
+
+const int NOTE_TRACKERR = 2;
+
+const int NOTE_CHILD = 4;
+
+const int SIDL = 1;
+
+const int SRUN = 2;
+
+const int SSLEEP = 3;
+
+const int SSTOP = 4;
+
+const int SZOMB = 5;
+
+const int P_ADVLOCK = 1;
+
+const int P_CONTROLT = 2;
+
+const int P_LP64 = 4;
+
+const int P_NOCLDSTOP = 8;
+
+const int P_PPWAIT = 16;
+
+const int P_PROFIL = 32;
+
+const int P_SELECT = 64;
+
+const int P_CONTINUED = 128;
+
+const int P_SUGID = 256;
+
+const int P_SYSTEM = 512;
+
+const int P_TIMEOUT = 1024;
+
+const int P_TRACED = 2048;
+
+const int P_DISABLE_ASLR = 4096;
+
+const int P_WEXIT = 8192;
+
+const int P_EXEC = 16384;
+
+const int P_OWEUPC = 32768;
+
+const int P_AFFINITY = 65536;
+
+const int P_TRANSLATED = 131072;
+
+const int P_CLASSIC = 131072;
+
+const int P_DELAYIDLESLEEP = 262144;
+
+const int P_CHECKOPENEVT = 524288;
+
+const int P_DEPENDENCY_CAPABLE = 1048576;
+
+const int P_REBOOT = 2097152;
+
+const int P_RESV6 = 4194304;
+
+const int P_RESV7 = 8388608;
+
+const int P_THCWD = 16777216;
+
+const int P_RESV9 = 33554432;
+
+const int P_ADOPTPERSONA = 67108864;
+
+const int P_RESV11 = 134217728;
+
+const int P_NOSHLIB = 268435456;
+
+const int P_FORCEQUOTA = 536870912;
+
+const int P_NOCLDWAIT = 1073741824;
+
+const int P_NOREMOTEHANG = 2147483648;
+
+const int P_INMEM = 0;
+
+const int P_NOSWAP = 0;
+
+const int P_PHYSIO = 0;
+
+const int P_FSTRACE = 0;
+
+const int P_SSTEP = 0;
+
+const int P_DIRTY_TRACK = 1;
+
+const int P_DIRTY_ALLOW_IDLE_EXIT = 2;
+
+const int P_DIRTY_DEFER = 4;
+
+const int P_DIRTY = 8;
+
+const int P_DIRTY_SHUTDOWN = 16;
+
+const int P_DIRTY_TERMINATED = 32;
+
+const int P_DIRTY_BUSY = 64;
+
+const int P_DIRTY_MARKED = 128;
+
+const int P_DIRTY_AGING_IN_PROGRESS = 256;
+
+const int P_DIRTY_LAUNCH_IN_PROGRESS = 512;
+
+const int P_DIRTY_DEFER_ALWAYS = 1024;
+
+const int P_DIRTY_IS_DIRTY = 24;
+
+const int P_DIRTY_IDLE_EXIT_ENABLED = 3;
+
+const int CTL_MAXNAME = 12;
+
+const int CTLTYPE = 15;
+
+const int CTLTYPE_NODE = 1;
+
+const int CTLTYPE_INT = 2;
+
+const int CTLTYPE_STRING = 3;
+
+const int CTLTYPE_QUAD = 4;
+
+const int CTLTYPE_OPAQUE = 5;
+
+const int CTLTYPE_STRUCT = 5;
+
+const int CTLFLAG_RD = 2147483648;
+
+const int CTLFLAG_WR = 1073741824;
+
+const int CTLFLAG_RW = 3221225472;
+
+const int CTLFLAG_NOLOCK = 536870912;
+
+const int CTLFLAG_ANYBODY = 268435456;
+
+const int CTLFLAG_SECURE = 134217728;
+
+const int CTLFLAG_MASKED = 67108864;
+
+const int CTLFLAG_NOAUTO = 33554432;
+
+const int CTLFLAG_KERN = 16777216;
+
+const int CTLFLAG_LOCKED = 8388608;
+
+const int CTLFLAG_OID2 = 4194304;
+
+const int CTLFLAG_EXPERIMENT = 1048576;
+
+const int OID_AUTO = -1;
+
+const int OID_AUTO_START = 100;
+
+const int CTL_UNSPEC = 0;
+
+const int CTL_KERN = 1;
+
+const int CTL_VM = 2;
+
+const int CTL_VFS = 3;
+
+const int CTL_NET = 4;
+
+const int CTL_DEBUG = 5;
+
+const int CTL_HW = 6;
+
+const int CTL_MACHDEP = 7;
+
+const int CTL_USER = 8;
+
+const int CTL_MAXID = 9;
+
+const int KERN_OSTYPE = 1;
+
+const int KERN_OSRELEASE = 2;
+
+const int KERN_OSREV = 3;
+
+const int KERN_VERSION = 4;
+
+const int KERN_MAXVNODES = 5;
+
+const int KERN_MAXPROC = 6;
+
+const int KERN_MAXFILES = 7;
+
+const int KERN_ARGMAX = 8;
+
+const int KERN_SECURELVL = 9;
+
+const int KERN_HOSTNAME = 10;
+
+const int KERN_HOSTID = 11;
+
+const int KERN_CLOCKRATE = 12;
+
+const int KERN_VNODE = 13;
+
+const int KERN_PROC = 14;
+
+const int KERN_FILE = 15;
+
+const int KERN_PROF = 16;
+
+const int KERN_POSIX1 = 17;
+
+const int KERN_NGROUPS = 18;
+
+const int KERN_JOB_CONTROL = 19;
+
+const int KERN_SAVED_IDS = 20;
+
+const int KERN_BOOTTIME = 21;
+
+const int KERN_NISDOMAINNAME = 22;
+
+const int KERN_DOMAINNAME = 22;
+
+const int KERN_MAXPARTITIONS = 23;
+
+const int KERN_KDEBUG = 24;
+
+const int KERN_UPDATEINTERVAL = 25;
+
+const int KERN_OSRELDATE = 26;
+
+const int KERN_NTP_PLL = 27;
+
+const int KERN_BOOTFILE = 28;
+
+const int KERN_MAXFILESPERPROC = 29;
+
+const int KERN_MAXPROCPERUID = 30;
+
+const int KERN_DUMPDEV = 31;
+
+const int KERN_IPC = 32;
+
+const int KERN_DUMMY = 33;
+
+const int KERN_PS_STRINGS = 34;
+
+const int KERN_USRSTACK32 = 35;
+
+const int KERN_LOGSIGEXIT = 36;
+
+const int KERN_SYMFILE = 37;
+
+const int KERN_PROCARGS = 38;
+
+const int KERN_NETBOOT = 40;
+
+const int KERN_SYSV = 42;
+
+const int KERN_AFFINITY = 43;
+
+const int KERN_TRANSLATE = 44;
+
+const int KERN_CLASSIC = 44;
+
+const int KERN_EXEC = 45;
+
+const int KERN_CLASSICHANDLER = 45;
+
+const int KERN_AIOMAX = 46;
+
+const int KERN_AIOPROCMAX = 47;
+
+const int KERN_AIOTHREADS = 48;
+
+const int KERN_PROCARGS2 = 49;
+
+const int KERN_COREFILE = 50;
+
+const int KERN_COREDUMP = 51;
+
+const int KERN_SUGID_COREDUMP = 52;
+
+const int KERN_PROCDELAYTERM = 53;
+
+const int KERN_SHREG_PRIVATIZABLE = 54;
+
+const int KERN_LOW_PRI_WINDOW = 56;
+
+const int KERN_LOW_PRI_DELAY = 57;
+
+const int KERN_POSIX = 58;
+
+const int KERN_USRSTACK64 = 59;
+
+const int KERN_NX_PROTECTION = 60;
+
+const int KERN_TFP = 61;
+
+const int KERN_PROCNAME = 62;
+
+const int KERN_THALTSTACK = 63;
+
+const int KERN_SPECULATIVE_READS = 64;
+
+const int KERN_OSVERSION = 65;
+
+const int KERN_SAFEBOOT = 66;
+
+const int KERN_RAGEVNODE = 68;
+
+const int KERN_TTY = 69;
+
+const int KERN_CHECKOPENEVT = 70;
+
+const int KERN_THREADNAME = 71;
+
+const int KERN_MAXID = 72;
+
+const int KERN_USRSTACK = 59;
+
+const int KERN_RAGE_PROC = 1;
+
+const int KERN_RAGE_THREAD = 2;
+
+const int KERN_UNRAGE_PROC = 3;
+
+const int KERN_UNRAGE_THREAD = 4;
+
+const int KERN_OPENEVT_PROC = 1;
+
+const int KERN_UNOPENEVT_PROC = 2;
+
+const int KERN_TFP_POLICY = 1;
+
+const int KERN_TFP_POLICY_DENY = 0;
+
+const int KERN_TFP_POLICY_DEFAULT = 2;
+
+const int KERN_KDEFLAGS = 1;
+
+const int KERN_KDDFLAGS = 2;
+
+const int KERN_KDENABLE = 3;
+
+const int KERN_KDSETBUF = 4;
+
+const int KERN_KDGETBUF = 5;
+
+const int KERN_KDSETUP = 6;
+
+const int KERN_KDREMOVE = 7;
+
+const int KERN_KDSETREG = 8;
+
+const int KERN_KDGETREG = 9;
+
+const int KERN_KDREADTR = 10;
+
+const int KERN_KDPIDTR = 11;
+
+const int KERN_KDTHRMAP = 12;
+
+const int KERN_KDPIDEX = 14;
+
+const int KERN_KDSETRTCDEC = 15;
+
+const int KERN_KDGETENTROPY = 16;
+
+const int KERN_KDWRITETR = 17;
+
+const int KERN_KDWRITEMAP = 18;
+
+const int KERN_KDTEST = 19;
+
+const int KERN_KDREADCURTHRMAP = 21;
+
+const int KERN_KDSET_TYPEFILTER = 22;
+
+const int KERN_KDBUFWAIT = 23;
+
+const int KERN_KDCPUMAP = 24;
+
+const int KERN_KDCPUMAP_EXT = 25;
+
+const int KERN_KDSET_EDM = 26;
+
+const int KERN_KDGET_EDM = 27;
+
+const int KERN_KDWRITETR_V3 = 28;
+
+const int KERN_PROC_ALL = 0;
+
+const int KERN_PROC_PID = 1;
+
+const int KERN_PROC_PGRP = 2;
+
+const int KERN_PROC_SESSION = 3;
+
+const int KERN_PROC_TTY = 4;
+
+const int KERN_PROC_UID = 5;
+
+const int KERN_PROC_RUID = 6;
+
+const int KERN_PROC_LCID = 7;
+
+const int KERN_VFSNSPACE_HANDLE_PROC = 1;
+
+const int KERN_VFSNSPACE_UNHANDLE_PROC = 2;
+
+const int WMESGLEN = 7;
+
+const int EPROC_CTTY = 1;
+
+const int EPROC_SLEADER = 2;
+
+const int COMAPT_MAXLOGNAME = 12;
+
+const int KIPC_MAXSOCKBUF = 1;
+
+const int KIPC_SOCKBUF_WASTE = 2;
+
+const int KIPC_SOMAXCONN = 3;
+
+const int KIPC_MAX_LINKHDR = 4;
+
+const int KIPC_MAX_PROTOHDR = 5;
+
+const int KIPC_MAX_HDR = 6;
+
+const int KIPC_MAX_DATALEN = 7;
+
+const int KIPC_MBSTAT = 8;
+
+const int KIPC_NMBCLUSTERS = 9;
+
+const int KIPC_SOQLIMITCOMPAT = 10;
+
+const int VM_METER = 1;
+
+const int VM_LOADAVG = 2;
+
+const int VM_MACHFACTOR = 4;
+
+const int VM_SWAPUSAGE = 5;
+
+const int VM_MAXID = 6;
+
+const int LSCALE = 1000;
+
+const int HW_MACHINE = 1;
+
+const int HW_MODEL = 2;
+
+const int HW_NCPU = 3;
+
+const int HW_BYTEORDER = 4;
+
+const int HW_PHYSMEM = 5;
+
+const int HW_USERMEM = 6;
+
+const int HW_PAGESIZE = 7;
+
+const int HW_DISKNAMES = 8;
+
+const int HW_DISKSTATS = 9;
+
+const int HW_EPOCH = 10;
+
+const int HW_FLOATINGPT = 11;
+
+const int HW_MACHINE_ARCH = 12;
+
+const int HW_VECTORUNIT = 13;
+
+const int HW_BUS_FREQ = 14;
+
+const int HW_CPU_FREQ = 15;
+
+const int HW_CACHELINE = 16;
+
+const int HW_L1ICACHESIZE = 17;
+
+const int HW_L1DCACHESIZE = 18;
+
+const int HW_L2SETTINGS = 19;
+
+const int HW_L2CACHESIZE = 20;
+
+const int HW_L3SETTINGS = 21;
+
+const int HW_L3CACHESIZE = 22;
+
+const int HW_TB_FREQ = 23;
+
+const int HW_MEMSIZE = 24;
+
+const int HW_AVAILCPU = 25;
+
+const int HW_TARGET = 26;
+
+const int HW_PRODUCT = 27;
+
+const int HW_MAXID = 28;
+
+const int USER_CS_PATH = 1;
+
+const int USER_BC_BASE_MAX = 2;
+
+const int USER_BC_DIM_MAX = 3;
+
+const int USER_BC_SCALE_MAX = 4;
+
+const int USER_BC_STRING_MAX = 5;
+
+const int USER_COLL_WEIGHTS_MAX = 6;
+
+const int USER_EXPR_NEST_MAX = 7;
+
+const int USER_LINE_MAX = 8;
+
+const int USER_RE_DUP_MAX = 9;
+
+const int USER_POSIX2_VERSION = 10;
+
+const int USER_POSIX2_C_BIND = 11;
+
+const int USER_POSIX2_C_DEV = 12;
+
+const int USER_POSIX2_CHAR_TERM = 13;
+
+const int USER_POSIX2_FORT_DEV = 14;
+
+const int USER_POSIX2_FORT_RUN = 15;
+
+const int USER_POSIX2_LOCALEDEF = 16;
+
+const int USER_POSIX2_SW_DEV = 17;
+
+const int USER_POSIX2_UPE = 18;
+
+const int USER_STREAM_MAX = 19;
+
+const int USER_TZNAME_MAX = 20;
+
+const int USER_MAXID = 21;
+
+const int CTL_DEBUG_NAME = 0;
+
+const int CTL_DEBUG_VALUE = 1;
+
+const int CTL_DEBUG_MAXID = 20;

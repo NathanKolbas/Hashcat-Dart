@@ -25,6 +25,10 @@ typedef unsigned long u64;
 #include "main_event.h"
 // Needed for functions that setup the user options
 #include "user_options.h"
+// Needed for terminal operations
+#include "terminal.h"
+// Needed for usage information
+#include "usage.h"
 ```
 This will allow ffigen to pick up the correct types needed for hashcat.h
 Remove once done.
