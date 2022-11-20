@@ -23,6 +23,8 @@ typedef unsigned long u64;
 #include "types.h"
 // Needed to recreate main in dart
 #include "main_event.h"
+// Needed for functions that setup the user options
+#include "user_options.h"
 ```
 This will allow ffigen to pick up the correct types needed for hashcat.h
 Remove once done.

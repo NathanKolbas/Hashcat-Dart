@@ -49089,6 +49089,250 @@ class HashcatBindings {
       void Function(
           int, ffi.Pointer<hashcat_ctx_t>, ffi.Pointer<ffi.Void>, int)>();
 
+  int getopt_long(
+    int arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Char>> arg1,
+    ffi.Pointer<ffi.Char> arg2,
+    ffi.Pointer<option> arg3,
+    ffi.Pointer<ffi.Int> arg4,
+  ) {
+    return _getopt_long(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  late final _getopt_longPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Int,
+              ffi.Pointer<ffi.Pointer<ffi.Char>>,
+              ffi.Pointer<ffi.Char>,
+              ffi.Pointer<option>,
+              ffi.Pointer<ffi.Int>)>>('getopt_long');
+  late final _getopt_long = _getopt_longPtr.asFunction<
+      int Function(int, ffi.Pointer<ffi.Pointer<ffi.Char>>,
+          ffi.Pointer<ffi.Char>, ffi.Pointer<option>, ffi.Pointer<ffi.Int>)>();
+
+  int getopt_long_only(
+    int arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Char>> arg1,
+    ffi.Pointer<ffi.Char> arg2,
+    ffi.Pointer<option> arg3,
+    ffi.Pointer<ffi.Int> arg4,
+  ) {
+    return _getopt_long_only(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  late final _getopt_long_onlyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(
+              ffi.Int,
+              ffi.Pointer<ffi.Pointer<ffi.Char>>,
+              ffi.Pointer<ffi.Char>,
+              ffi.Pointer<option>,
+              ffi.Pointer<ffi.Int>)>>('getopt_long_only');
+  late final _getopt_long_only = _getopt_long_onlyPtr.asFunction<
+      int Function(int, ffi.Pointer<ffi.Pointer<ffi.Char>>,
+          ffi.Pointer<ffi.Char>, ffi.Pointer<option>, ffi.Pointer<ffi.Int>)>();
+
+  int user_options_init(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_init(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_initPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<hashcat_ctx_t>)>>(
+          'user_options_init');
+  late final _user_options_init = _user_options_initPtr
+      .asFunction<int Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_destroy(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_destroy(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_destroyPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_destroy');
+  late final _user_options_destroy = _user_options_destroyPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  int user_options_getopt(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+    int argc,
+    ffi.Pointer<ffi.Pointer<ffi.Char>> argv,
+  ) {
+    return _user_options_getopt(
+      hashcat_ctx,
+      argc,
+      argv,
+    );
+  }
+
+  late final _user_options_getoptPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Pointer<hashcat_ctx_t>, ffi.Int,
+              ffi.Pointer<ffi.Pointer<ffi.Char>>)>>('user_options_getopt');
+  late final _user_options_getopt = _user_options_getoptPtr.asFunction<
+      int Function(ffi.Pointer<hashcat_ctx_t>, int,
+          ffi.Pointer<ffi.Pointer<ffi.Char>>)>();
+
+  int user_options_sanity(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_sanity(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_sanityPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<hashcat_ctx_t>)>>(
+          'user_options_sanity');
+  late final _user_options_sanity = _user_options_sanityPtr
+      .asFunction<int Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_session_auto(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_session_auto(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_session_autoPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_session_auto');
+  late final _user_options_session_auto = _user_options_session_autoPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_preprocess(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_preprocess(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_preprocessPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_preprocess');
+  late final _user_options_preprocess = _user_options_preprocessPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_postprocess(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_postprocess(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_postprocessPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_postprocess');
+  late final _user_options_postprocess = _user_options_postprocessPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_extra_init(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_extra_init(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_extra_initPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_extra_init');
+  late final _user_options_extra_init = _user_options_extra_initPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_extra_destroy(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_extra_destroy(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_extra_destroyPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_extra_destroy');
+  late final _user_options_extra_destroy = _user_options_extra_destroyPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  int user_options_extra_amplifier(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_extra_amplifier(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_extra_amplifierPtr =
+      _lookup<ffi.NativeFunction<u64 Function(ffi.Pointer<hashcat_ctx_t>)>>(
+          'user_options_extra_amplifier');
+  late final _user_options_extra_amplifier = _user_options_extra_amplifierPtr
+      .asFunction<int Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_logger(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_logger(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_loggerPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_logger');
+  late final _user_options_logger = _user_options_loggerPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  int user_options_check_files(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_check_files(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_check_filesPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<hashcat_ctx_t>)>>(
+          'user_options_check_files');
+  late final _user_options_check_files = _user_options_check_filesPtr
+      .asFunction<int Function(ffi.Pointer<hashcat_ctx_t>)>();
+
+  void user_options_info(
+    ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
+  ) {
+    return _user_options_info(
+      hashcat_ctx,
+    );
+  }
+
+  late final _user_options_infoPtr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>(
+      'user_options_info');
+  late final _user_options_info = _user_options_infoPtr
+      .asFunction<void Function(ffi.Pointer<hashcat_ctx_t>)>();
+
   int hashcat_init(
     ffi.Pointer<hashcat_ctx_t> hashcat_ctx,
     ffi.Pointer<
@@ -63953,6 +64197,18 @@ abstract class hash_category {
   static const int HASH_CATEGORY_FBE = 23;
 }
 
+class option extends ffi.Struct {
+  external ffi.Pointer<ffi.Char> name;
+
+  @ffi.Int()
+  external int has_arg;
+
+  external ffi.Pointer<ffi.Int> flag;
+
+  @ffi.Int()
+  external int val;
+}
+
 const int QOS_CLASS_USER_INTERACTIVE = 33;
 
 const int QOS_CLASS_USER_INITIATED = 25;
@@ -67188,7 +67444,7 @@ const int CL_HAS_NAMED_VECTOR_FIELDS = 1;
 const int CL_HAS_HI_LO_VECTOR_FIELDS = 1;
 
 const String CL_PROGRAM_STRING_DEBUG_INFO =
-    '#line 1932 "/var/folders/yb/xfw1ct9d38v_f9wpjpqrzc4m0000gq/T/bpDnBG/temp_for_macros.hpp" \n\n';
+    '#line 1932 "/var/folders/yb/xfw1ct9d38v_f9wpjpqrzc4m0000gq/T/Y28kuc/temp_for_macros.hpp" \n\n';
 
 const int CL_SUCCESS = 0;
 
@@ -72092,3 +72348,9 @@ const int MAX_OLD_EVENTS = 10;
 const int MAX_TOKENS = 128;
 
 const int MAX_SIGNATURES = 16;
+
+const int no_argument = 0;
+
+const int required_argument = 1;
+
+const int optional_argument = 2;
