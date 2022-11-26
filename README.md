@@ -9,7 +9,10 @@ git submodule init
 git submodule update
 ```
 
-For ffigen:
+### Building
+Scripts are made to help make building and copying files easier. Run `dart run scripts.dart --help` to learn more and get started.
+
+For ffigen (DEPRECATED):
 Edit hashcat.h (located at: hashcat-mobile/include/hashcat.h) and add this before anything:
 ```
 // Order metters, ffigen will go from top to bottom and these types are needed before the others

@@ -18,6 +18,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   ffigen: ^7.2.1
+  args: ^2.3.1
+  io: ^1.0.3
 
 ffigen:
   name: HashcatBindings
