@@ -4,6 +4,12 @@ import 'package:args/args.dart';
 import 'package:io/io.dart';
 import 'package:path/path.dart' as path;
 
+const Map<String, String> androidAarchMap = {
+  'arm64': 'aarch64-linux-android',
+  'x86_64': 'x86_64-linux-android',
+  'armeabi': 'armv7a-linux-androideabi',
+};
+
 late ArgResults argResults;
 final cwd = path.context.current;
 final hashcatMobileDir = path.join(cwd, 'hashcat-mobile');
@@ -39,14 +45,20 @@ Future<int> compile() async {
 compileAndroid() async {
   stdout.writeln('Building Android...');
 
-  // First clean
-  await runCommand('make', ['clean'], workingDirectory: hashcatMobileDir);
+  final aarch = argResults['aarch'] as List<String>;
+  for (final arch in aarch) {
+    stdout.writeln('Building $arch...');
 
-  // Now build
-  await runCommand('make', [], workingDirectory: hashcatMobileDir, environment: {
-    'BUILD_ANDROID': '1',
-    'ANDROID_NDK_PATH': argResults['NDK_PATH']
-  });
+    // First clean
+    await runCommand('make', ['clean'], workingDirectory: hashcatMobileDir);
+
+    // Now build
+    await runCommand('make', [], workingDirectory: hashcatMobileDir, environment: {
+      'BUILD_ANDROID': '1',
+      'ANDROID_NDK_PATH': argResults['NDK_PATH'],
+      'ANDROID_TARGET': androidAarchMap[arch] ?? ''
+    });
+  }
 
   stdout.writeln('Done building Android!');
 }
@@ -95,10 +107,10 @@ main(List<String> args) async {
         allowedHelp: {
           'android': 'build for the android platform'
         })
-    ..addMultiOption('aarch', allowed: ['arm64'],
+    ..addMultiOption('aarch', allowed: ['arm64', 'x86_64', 'armeabi'], defaultsTo: ['arm64'],
         help: 'Specify which architecture to build for on Android',
         allowedHelp: {
-          'arm64': 'Build the arm64 android architecture'
+          'arm64': 'Build the arm64-v8a android architecture'
         });
 
   argResults = parser.parse(args);
