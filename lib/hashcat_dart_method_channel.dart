@@ -10,8 +10,8 @@ class MethodChannelHashcatDart extends HashcatDartPlatform {
   final methodChannel = const MethodChannel('hashcat_dart');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> getDataDir() async {
+    final dataDir = await methodChannel.invokeMethod<String>('getDataDir');
+    return dataDir;
   }
 }

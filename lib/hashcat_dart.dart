@@ -6,6 +6,7 @@ import 'dart:ffi' as ffi;
 
 import 'package:ffi/ffi.dart' as pffi;
 import 'package:hashcat_dart/command_line_args.dart';
+import 'package:path/path.dart' as path;
 
 import 'hashcat_bindings.dart';
 import 'hashcat_dart_platform_interface.dart';
@@ -19,11 +20,12 @@ class HashcatDart {
     print(char);
   }
 
-  Future<String?> getPlatformVersion() {
-    return HashcatDartPlatform.instance.getPlatformVersion();
+  Future<String> hashcatDir() async {
+    final dataDir = await HashcatDartPlatform.instance.getDataDir() ?? '';
+    return path.join(dataDir, 'hashcat');
   }
 
-  int test() {
+  Future<int> run() async {
     final dl = ffi.DynamicLibrary.open('libhashcat.so');
 
     // Should be updated for each new Hashcat version
@@ -33,7 +35,7 @@ class HashcatDart {
     /// COMPTIME := $(shell date +%s)  i.e. seconds since epoch
     final int COMPTIME = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-    final clArgs = CommandLineArgs('hashcat --version');
+    final clArgs = CommandLineArgs('hashcat --help');
 
 
     // Lookup symbols
@@ -107,9 +109,9 @@ class HashcatDart {
     /// shared_folder = SHARED_FOLDER;
     /// #endif
 
-    // TODO: Check that this is correct for all devices or allow this to be specified
-    ffi.Pointer<pffi.Utf8> install_folder = '/data/data/com.hashcat.dart.hashcat_dart_example/hashcat'.toNativeUtf8();
-    ffi.Pointer<pffi.Utf8> shared_folder = '/data/data/com.hashcat.dart.hashcat_dart_example/hashcat'.toNativeUtf8();
+    final String hashcatDir = await this.hashcatDir();
+    ffi.Pointer<pffi.Utf8> install_folder = hashcatDir.toNativeUtf8();
+    ffi.Pointer<pffi.Utf8> shared_folder = hashcatDir.toNativeUtf8();
 
     /// initialize the user options with some defaults (you can override them later)
 
