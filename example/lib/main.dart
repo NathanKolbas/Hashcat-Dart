@@ -14,6 +14,21 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _hashcatDartPlugin = HashcatDart();
+  final hashcatOutController = ScrollController();
+  String hashcatCommand = 'hashcat --help';
+  String hashcatOut = '';
+
+  stateCallback(String string) {
+    setState(() {
+      hashcatOut += "\n$string";
+    });
+
+    Future.delayed(const Duration(milliseconds: 250)).then((value) => hashcatOutController.animateTo(
+      hashcatOutController.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 250),
+      curve: Curves.easeIn,
+    ));
+  }
 
   @override
   void initState() {
@@ -25,17 +40,51 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Hashcat Example'),
         ),
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () {
-                  print(_hashcatDartPlugin.run());
-                },
-                child: const Text('test'),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      onChanged: (value) => setState(() {
+                        hashcatCommand = value;
+                      }),
+                      initialValue: 'hashcat --help',
+                      decoration: const InputDecoration(
+                        labelText: 'hashcat command',
+                        contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.lightBlueAccent, width: 1.0),
+                          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
+                          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () async {
+                      print(await _hashcatDartPlugin.run(hashcatCommand, callback: stateCallback));
+                    },
+                    child: const Icon(Icons.play_arrow),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: hashcatOutController,
+                  child: Text(hashcatOut),
+                ),
               ),
             ],
           ),

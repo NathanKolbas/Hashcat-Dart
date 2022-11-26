@@ -11,9 +11,11 @@ import 'package:path/path.dart' as path;
 import 'hashcat_bindings.dart';
 import 'hashcat_dart_platform_interface.dart';
 
+late void Function(String) stateCallback;
+
 class HashcatDart {
   static void printNativeCallback(ffi.Pointer<pffi.Utf8> char) {
-    printCallback(char.toDartString());
+    stateCallback(char.toDartString());
   }
 
   static void printCallback(String char) {
@@ -27,7 +29,9 @@ class HashcatDart {
 
   setupHashcatFiles() async => await HashcatDartPlatform.instance.setupHashcatFiles();
 
-  Future<int> run() async {
+  Future<int> run(String command, { void Function(String) callback = printCallback }) async {
+    stateCallback = callback;
+
     final dl = ffi.DynamicLibrary.open('libhashcat.so');
 
     // Should be updated for each new Hashcat version
@@ -37,7 +41,7 @@ class HashcatDart {
     /// COMPTIME := $(shell date +%s)  i.e. seconds since epoch
     final int COMPTIME = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-    final clArgs = CommandLineArgs('hashcat --help');
+    final clArgs = CommandLineArgs(command);
 
 
     // Lookup symbols
@@ -194,7 +198,7 @@ class HashcatDart {
     /// if (user_options->version == true)
     if (user_options.ref.version == true) {
       /// printf ("%s\n", VERSION_TAG);
-      printCallback("${VERSION_TAG.toDartString()}\n");
+      printNativeCallback(VERSION_TAG);
 
       /// user_options_destroy (hashcat_ctx);
       user_options_destroy(hashcat_ctx);
