@@ -26,4 +26,8 @@ abstract class HashcatDartPlatform extends PlatformInterface {
   Future<String?> getDataDir() {
     throw UnimplementedError('dataDir() has not been implemented.');
   }
+
+  Future<bool?> setupHashcatFiles() {
+    throw UnimplementedError('setupHashcatFiles() has not been implemented.');
+  }
 }

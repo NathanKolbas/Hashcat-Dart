@@ -2,6 +2,7 @@ package com.hashcat.dart.hashcat_dart
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.AssetManager
 import android.os.Build
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -11,6 +12,53 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import java.io.File
+import java.io.File.separator
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+
+fun AssetManager.copyAssetFolder(srcName: String, dstName: String): Boolean {
+  return try {
+    var result: Boolean
+    val fileList = this.list(srcName) ?: return false
+    if (fileList.isEmpty()) {
+      result = copyAssetFile(srcName, dstName)
+    } else {
+      val file = File(dstName)
+      result = file.mkdirs()
+      for (filename in fileList) {
+        result = result and copyAssetFolder(
+          srcName + separator.toString() + filename,
+          dstName + separator.toString() + filename
+        )
+      }
+    }
+    result
+  } catch (e: IOException) {
+    e.printStackTrace()
+    false
+  }
+}
+
+fun AssetManager.copyAssetFile(srcName: String, dstName: String): Boolean {
+  return try {
+    val inStream = this.open(srcName)
+    val outFile = File(dstName)
+    val out: OutputStream = FileOutputStream(outFile)
+    val buffer = ByteArray(1024)
+    var read: Int
+    while (inStream.read(buffer).also { read = it } != -1) {
+      out.write(buffer, 0, read)
+    }
+    inStream.close()
+    out.close()
+    true
+  } catch (e: IOException) {
+    e.printStackTrace()
+    false
+  }
+}
 
 /** HashcatDartPlugin */
 class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
@@ -33,6 +81,11 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       // TODO: Update min android version to API 28 https://apilevels.com/
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         result.success(context.dataDir.absolutePath)
+      }
+    } else if (call.method == "setupHashcatFiles") {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        val copySuccess = context.assets.copyAssetFolder("hashcat", context.dataDir.absolutePath + separator.toString() + "hashcat")
+        result.success(copySuccess)
       }
     } else {
       result.notImplemented()

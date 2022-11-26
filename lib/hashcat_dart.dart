@@ -25,6 +25,8 @@ class HashcatDart {
     return path.join(dataDir, 'hashcat');
   }
 
+  setupHashcatFiles() async => await HashcatDartPlatform.instance.setupHashcatFiles();
+
   Future<int> run() async {
     final dl = ffi.DynamicLibrary.open('libhashcat.so');
 

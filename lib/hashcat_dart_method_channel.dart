@@ -14,4 +14,10 @@ class MethodChannelHashcatDart extends HashcatDartPlatform {
     final dataDir = await methodChannel.invokeMethod<String>('getDataDir');
     return dataDir;
   }
+
+  @override
+  Future<bool?> setupHashcatFiles() async {
+    final success = await methodChannel.invokeMethod<bool>('setupHashcatFiles');
+    return success;
+  }
 }
