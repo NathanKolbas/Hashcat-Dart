@@ -51,6 +51,10 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // Uncomment below to include debug symbols
+//        packagingOptions {
+//            doNotStrip '**.so'
+//        }
     }
 
     buildTypes {

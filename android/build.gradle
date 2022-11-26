@@ -42,5 +42,9 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        // Uncomment below to include debug symbols
+//        packagingOptions {
+//            doNotStrip '**.so'
+//        }
     }
 }
