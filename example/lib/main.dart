@@ -80,6 +80,12 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
+              TextButton(
+                onPressed: () async {
+                  print(await _hashcatDartPlugin.setupHashcatFiles());
+                },
+                child: const Text('test'),
+              ),
               Expanded(
                 child: SingleChildScrollView(
                   controller: hashcatOutController,

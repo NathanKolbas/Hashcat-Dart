@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.AssetManager
 import android.os.Build
+import androidx.annotation.RequiresApi
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -76,15 +77,22 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     context = flutterPluginBinding.applicationContext
   }
 
+  // TODO: Update min android version to API 28 https://apilevels.com/
+  @RequiresApi(Build.VERSION_CODES.N)
+  val dataDir: String = context.dataDir.absolutePath
+
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "getDataDir") {
-      // TODO: Update min android version to API 28 https://apilevels.com/
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        result.success(context.dataDir.absolutePath)
+        result.success(dataDir)
       }
     } else if (call.method == "setupHashcatFiles") {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        val copySuccess = context.assets.copyAssetFolder("hashcat", context.dataDir.absolutePath + separator.toString() + "hashcat")
+        // Since there are multiple ABIs for android we will need to store their compiled files
+        // separately and then copy the correct ones. There has got to be a better way so the bundled
+        // APK only includes that devices ABI but this works for now.
+        val arch = System.getProperty("os.arch")
+        val copySuccess = context.assets.copyAssetFolder("hashcat$separator$arch", "$dataDir${separator}hashcat")
         result.success(copySuccess)
       }
     } else {

@@ -10,6 +10,18 @@ const Map<String, String> androidAarchMap = {
   'armeabi': 'armv7a-linux-androideabi',
 };
 
+const Map<String, String> androidJniLibsAarchMap = {
+  'arm64': 'arm64-v8a',
+  'x86_64': 'x86_64',
+  'armeabi': 'armeabi-v7a',
+};
+
+const Map<String, String> androidAssetsAarchMap = {
+  'arm64': 'aarch64',
+  'x86_64': 'x86_64',
+  'armeabi': 'armv7a',
+};
+
 late ArgResults argResults;
 final cwd = path.context.current;
 final hashcatMobileDir = path.join(cwd, 'hashcat-mobile');
@@ -29,7 +41,6 @@ Future<int> compile() async {
     switch (platform) {
       case 'android': {
         await compileAndroid();
-        await copyFiles(platform);
         break;
       }
       case 'ios': throw Exception('iOS is not supported');
@@ -58,12 +69,14 @@ compileAndroid() async {
       'ANDROID_NDK_PATH': argResults['NDK_PATH'],
       'ANDROID_TARGET': androidAarchMap[arch] ?? ''
     });
+
+    await copyFiles('android');
   }
 
   stdout.writeln('Done building Android!');
 }
 
-copyFiles(String platform) {
+copyFiles(String platform, { androidArch='' }) {
   if (argResults['no-copy']) return;
 
   stdout.writeln('Copying files...');
@@ -76,15 +89,22 @@ copyFiles(String platform) {
 
   switch (platform) {
     case 'android': {
+      // Since there are multiple ABIs for android we will need to store their compiled files
+      // separately and then copy the correct ones. There has got to be a better way so the bundled
+      // APK only includes that devices ABI but this works for now.
+      final libDir = Directory(path.join(cwd, 'android', 'src', 'main', 'jniLibs', androidAssetsAarchMap[androidArch] ?? ''));
+      final assetDir = Directory(path.join(cwd, 'android', 'src', 'main', 'assets', 'hashcat', androidAssetsAarchMap[androidArch] ?? ''));
+
       stdout.writeln('Copying libhashcat.so');
-      // arm64-v8a
-      hashcatLib.copySync(path.join(cwd, 'android', 'src', 'main', 'jniLibs', 'test', "libhashcat.$hashcatLibExtension"));
+      libDir.createSync();
+      hashcatLib.copySync(path.join(libDir.path, "libhashcat.$hashcatLibExtension"));
 
       stdout.writeln('Copying OpenCL directory');
-      copyPathSync(hashcatOpenCL.path, path.join(cwd, 'android', 'src', 'main', 'res', 'raw', 'hashcat', 'OpenCL'));
+      assetDir.createSync();
+      copyPathSync(hashcatOpenCL.path, path.join(assetDir.path, 'OpenCL'));
 
       stdout.writeln('Copying modules directory');
-      copyPathSync(hashcatModules.path, path.join(cwd, 'android', 'src', 'main', 'res', 'raw', 'hashcat', 'modules'));
+      copyPathSync(hashcatModules.path, path.join(assetDir.path, 'modules'));
       break;
     }
     case 'ios': throw Exception('iOS is not supported');
