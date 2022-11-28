@@ -73,33 +73,31 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler {
     context = flutterPluginBinding.applicationContext
   }
 
-  // TODO: Update min android version to API 28 https://apilevels.com/
   private val dataDir: String
-    @RequiresApi(Build.VERSION_CODES.N)
     get() = context.dataDir.absolutePath
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getDataDir") {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        result.success(dataDir)
-      }
-    } else if (call.method == "setupHashcatFiles") {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        // Since there are multiple ABIs for android we will need to store their compiled files
-        // separately and then copy the correct ones. There has got to be a better way so the bundled
-        // APK only includes that devices ABI but this works for now.
-        val arch = System.getProperty("os.arch")
+    when (call.method) {
+        "getDataDir" -> {
+          result.success(dataDir)
+        }
+        "setupHashcatFiles" -> {
+          // Since there are multiple ABIs for android we will need to store their compiled files
+          // separately and then copy the correct ones. There has got to be a better way so the bundled
+          // APK only includes that devices ABI but this works for now.
+          val arch = System.getProperty("os.arch")
 
-        // Copy the files that are specific to the architecture
-        val copySuccess = context.assets.copyAssetFolder("hashcat$separator$arch", "$dataDir${separator}hashcat")
+          // Copy the files that are specific to the architecture
+          val copySuccess = context.assets.copyAssetFolder("hashcat$separator$arch", "$dataDir${separator}hashcat")
 
-        // Copy the files that are shared across architectures
-        val copySharedSuccess = context.assets.copyAssetFolder("hashcat${separator}shared", "$dataDir${separator}hashcat")
+          // Copy the files that are shared across architectures
+          val copySharedSuccess = context.assets.copyAssetFolder("hashcat${separator}shared", "$dataDir${separator}hashcat")
 
-        result.success(copySuccess && copySharedSuccess)
-      }
-    } else {
-      result.notImplemented()
+          result.success(copySuccess && copySharedSuccess)
+        }
+        else -> {
+          result.notImplemented()
+        }
     }
   }
 
