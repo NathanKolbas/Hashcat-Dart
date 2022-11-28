@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _hashcatDartPlugin = HashcatDart();
+  final _hashcatPlugin = Hashcat();
   final hashcatOutController = ScrollController();
   String hashcatCommand = 'hashcat --help';
   String hashcatOut = '';
@@ -33,6 +33,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
+    _hashcatPlugin.init();
   }
 
   @override
@@ -74,7 +76,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   TextButton(
                     onPressed: () async {
-                      print(await _hashcatDartPlugin.run(hashcatCommand, callback: stateCallback));
+                      print(await _hashcatPlugin.instance.execute(hashcatCommand, callback: stateCallback));
                     },
                     child: const Icon(Icons.play_arrow),
                   ),
@@ -84,6 +86,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () => Hashcat().setupHashcatDir(),
                 child: const Text('test'),
               ),
+              const CircularProgressIndicator(),
               Expanded(
                 child: SingleChildScrollView(
                   controller: hashcatOutController,
