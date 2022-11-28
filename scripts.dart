@@ -130,7 +130,7 @@ main(List<String> args) async {
     ..addFlag('compile', abbr: 'c', negatable: false, help: 'Compiles Hashcat and copies the folders to the correct locations')
     ..addFlag('no-copy', negatable: false, help: 'Do not copy built files and folders to the correct locations')
     ..addOption('NDK_PATH', help: 'Path to your NDK used for Android compile. Should be like: `/Users/name/Library/Android/sdk/ndk/21.4.707.5529/llvm/prebuilt/darwin-x86_64`')
-    ..addMultiOption('platform', allowed: ['android'],
+    ..addMultiOption('platform', allowed: ['android'], defaultsTo: ['android'],
         help: 'Specify which platform to build for',
         allowedHelp: {
           'android': 'build for the android platform'

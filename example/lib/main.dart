@@ -82,11 +82,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
-              TextButton(
-                onPressed: () => Hashcat().setupHashcatDir(),
-                child: const Text('test'),
-              ),
-              const CircularProgressIndicator(),
               Expanded(
                 child: SingleChildScrollView(
                   controller: hashcatOutController,
