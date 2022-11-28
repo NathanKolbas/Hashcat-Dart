@@ -2,16 +2,109 @@
 // Hashcat for consistency and easy Ctrl+C Ctrl+F Ctrl+V lookup
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
+import 'dart:convert';
 import 'dart:ffi' as ffi;
+import 'dart:io';
 
 import 'package:ffi/ffi.dart' as pffi;
-import 'package:hashcat_dart/command_line_args.dart';
 import 'package:path/path.dart' as path;
 
+import 'command_line_args.dart';
 import 'hashcat_bindings.dart';
-import 'hashcat_dart_platform_interface.dart';
+import 'exceptions.dart';
+import '../hashcat_dart_platform_interface.dart';
 
 late void Function(String) stateCallback;
+
+class Hashcat {
+  static const HASHCAT_VERSION = '6.2.6';
+  static const PLUGIN_VERSION = '0.0.1';
+  static const _CONFIG_FILENAME = 'hashcat_dart_config.json';
+
+  late final ffi.DynamicLibrary hashcatLibrary;
+
+  /// **Must run first before using**
+  ///
+  /// Used to initialize Hashcat. This includes finding the shared library,
+  /// setting up hashcat directory, etc.
+  ///
+  /// [forceDirRefresh]defaults to false but if true will copy the files regardless if they
+  /// have been copied before. Note, it will not updated the config data. This is purely
+  /// an update.
+  ///
+  /// Might throw the following errors from the used function: [HashcatPlatformNotSupported],
+  /// [HashcatLibLoadFailed].
+  /// Exceptions are default behavior and should be caught and handled with accordingly.
+  init({ forceDirRefresh = false }) {
+    // Load the Shared Library
+    openDL();
+    // Setup the Hashcat directory
+    setupHashcatDir(refresh: forceDirRefresh);
+  }
+
+  /// Loads Hashcat's Shared Library
+  ///
+  /// Throws a [HashcatPlatformNotSupported] if the platform is not currently supported
+  /// and [HashcatLibLoadFailed] if there was an error loading the Hashcat library.
+  openDL() {
+    try {
+      hashcatLibrary = ffi.DynamicLibrary.open('libhashcat.so');
+
+      if (Platform.isMacOS || Platform.isIOS) {
+        // libraryPath = path.join(Directory.current.path, 'hello_library', 'libhello.dylib');
+        throw HashcatPlatformNotSupported('Platform not currently supported');
+      }
+
+      if (Platform.isWindows) {
+        // libraryPath = path.join(Directory.current.path, 'hello_library', 'Debug', 'hello.dll');
+        throw HashcatPlatformNotSupported('Platform not currently supported');
+      }
+    } on HashcatPlatformNotSupported catch (e) {
+      throw HashcatPlatformNotSupported(e.toString());
+    } on ArgumentError catch (e) {
+      throw HashcatLibLoadFailed(e.toString());
+    }
+  }
+
+  /// Sets up Hashcat's working directory, modules, etc.
+  ///
+  /// In the future it would be nice if this directory could be specified.
+  /// Should be as simple as passing null or a path to the directory to use.
+  /// Null being the default path.
+  ///
+  /// [refresh] defaults to false but if true will copy the files regardless if they
+  /// have been copied before. Note, it will not updated the config data. This is purely
+  /// an update.
+  setupHashcatDir({ refresh = false }) async {
+    if (!refresh) {
+      // This is where you would change it out for a custom dir
+      final dataDir = await HashcatDartPlatform.instance.getDataDir();
+      if (dataDir == null) throw HashcatDirectoryError('Unable to get data directory');
+      final hashcatDir = path.join(dataDir, 'hashcat');
+      // Open the config file
+      final configFile = File(path.join(hashcatDir, _CONFIG_FILENAME));
+      if (!configFile.existsSync()) configFile.createSync(recursive: true);
+      final jsonData = configFile.readAsStringSync();
+      final config = jsonData.isEmpty ? {} : jsonDecode(jsonData);
+
+      // Check if the directory should be updated
+      // All I can think of at the moment is the version of the plugin and the version of Hashcat.
+      // Ideally, this should be updated accordingly by the person using the plugin.
+      if ((config['pluginVersion'] ?? '') == PLUGIN_VERSION && (config['hashcatVersion'] ?? '') == HASHCAT_VERSION) {
+        return;
+      }
+
+      config['pluginVersion'] = PLUGIN_VERSION;
+      config['hashcatVersion'] = HASHCAT_VERSION;
+
+      // Save the updated config
+      final updatedConfig = jsonEncode(config);
+      configFile.writeAsStringSync(updatedConfig);
+    }
+
+    await HashcatDartPlatform.instance.setupHashcatFiles();
+  }
+}
 
 class HashcatDart {
   static void printNativeCallback(ffi.Pointer<pffi.Utf8> char) {

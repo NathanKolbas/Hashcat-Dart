@@ -78,8 +78,9 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   // TODO: Update min android version to API 28 https://apilevels.com/
-  @RequiresApi(Build.VERSION_CODES.N)
-  val dataDir: String = context.dataDir.absolutePath
+  private val dataDir: String
+    @RequiresApi(Build.VERSION_CODES.N)
+    get() = context.dataDir.absolutePath
 
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "getDataDir") {
@@ -92,8 +93,14 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         // separately and then copy the correct ones. There has got to be a better way so the bundled
         // APK only includes that devices ABI but this works for now.
         val arch = System.getProperty("os.arch")
+
+        // Copy the files that are specific to the architecture
         val copySuccess = context.assets.copyAssetFolder("hashcat$separator$arch", "$dataDir${separator}hashcat")
-        result.success(copySuccess)
+
+        // Copy the files that are shared across architectures
+        val copySharedSuccess = context.assets.copyAssetFolder("hashcat${separator}shared", "$dataDir${separator}hashcat")
+
+        result.success(copySuccess && copySharedSuccess)
       }
     } else {
       result.notImplemented()
@@ -113,7 +120,7 @@ class HashcatDartPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activity = binding.activity;
+    activity = binding.activity
   }
 
   override fun onDetachedFromActivityForConfigChanges() {

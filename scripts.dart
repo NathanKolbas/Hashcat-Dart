@@ -92,16 +92,24 @@ copyFiles(String platform, { androidArch='' }) {
       // Since there are multiple ABIs for android we will need to store their compiled files
       // separately and then copy the correct ones. There has got to be a better way so the bundled
       // APK only includes that devices ABI but this works for now.
-      final libDir = Directory(path.join(cwd, 'android', 'src', 'main', 'jniLibs', androidAssetsAarchMap[androidArch] ?? ''));
-      final assetDir = Directory(path.join(cwd, 'android', 'src', 'main', 'assets', 'hashcat', androidAssetsAarchMap[androidArch] ?? ''));
+      final assetArch = androidAssetsAarchMap[androidArch] ?? '';
+      final libDir = Directory(path.join(cwd, 'android', 'src', 'main', 'jniLibs', assetArch));
+      final assetDir = Directory(path.join(cwd, 'android', 'src', 'main', 'assets', 'hashcat', assetArch));
+
+      // This directory is used for files that are do not depend on the architecture
+      final sharedDir = Directory(path.join(cwd, 'android', 'src', 'main', 'assets', 'hashcat', 'shared'));
+
+      stdout.writeln('Creating directories');
+      libDir.createSync();
+      sharedDir.createSync();
+      assetDir.createSync();
 
       stdout.writeln('Copying libhashcat.so');
-      libDir.createSync();
       hashcatLib.copySync(path.join(libDir.path, "libhashcat.$hashcatLibExtension"));
 
+      // OpenCL folder does NOT depend on the architecture
       stdout.writeln('Copying OpenCL directory');
-      assetDir.createSync();
-      copyPathSync(hashcatOpenCL.path, path.join(assetDir.path, 'OpenCL'));
+      copyPathSync(hashcatOpenCL.path, path.join(sharedDir.path, 'OpenCL'));
 
       stdout.writeln('Copying modules directory');
       copyPathSync(hashcatModules.path, path.join(assetDir.path, 'modules'));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hashcat_dart/hashcat_dart.dart';
+import 'package:hashcat_dart/hashcat.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,9 +81,7 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
               TextButton(
-                onPressed: () async {
-                  print(await _hashcatDartPlugin.setupHashcatFiles());
-                },
+                onPressed: () => Hashcat().setupHashcatDir(),
                 child: const Text('test'),
               ),
               Expanded(

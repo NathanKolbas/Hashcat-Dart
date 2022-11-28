@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hashcat_dart/hashcat_dart.dart';
+import 'package:hashcat_dart/src/hashcat.dart';
 import 'package:hashcat_dart/hashcat_dart_platform_interface.dart';
-import 'package:hashcat_dart/hashcat_dart_method_channel.dart';
+import 'package:hashcat_dart/src/hashcat_dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockHashcatDartPlatform

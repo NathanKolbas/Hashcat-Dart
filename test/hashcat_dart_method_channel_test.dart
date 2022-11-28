@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hashcat_dart/hashcat_dart_method_channel.dart';
+import 'package:hashcat_dart/src/hashcat_dart';
 
 void main() {
   MethodChannelHashcatDart platform = MethodChannelHashcatDart();
