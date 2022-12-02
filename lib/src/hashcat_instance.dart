@@ -10,8 +10,6 @@ import 'package:ffi/ffi.dart' as pffi;
 
 import '../hashcat.dart';
 
-late void Function(String) stateCallback;
-
 class _HashcatIsolateArgs {
   final String command;
   final String hashcatDir;
@@ -21,10 +19,6 @@ class _HashcatIsolateArgs {
 }
 
 class HashcatInstance {
-  static void printNativeCallback(ffi.Pointer<pffi.Utf8> char) {
-    stateCallback(char.toDartString());
-  }
-
   static void printCallback(String char) {
     print(char);
   }
@@ -66,7 +60,6 @@ class HashcatInstance {
 
   /// This is a static function that will run in an [Isolate] which is in a separate core/thread
   static int _hashcatMain(_HashcatIsolateArgs args) {
-    stateCallback = args.sendPort.send;
     final dl = ffi.DynamicLibrary.open('libhashcat.so');
 
     // Should be updated for each new Hashcat version
@@ -100,14 +93,21 @@ class HashcatInstance {
     final int Function(ffi.Pointer<hashcat_ctx_t>) hashcat_session_destroy = dl.lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<hashcat_ctx_t>)>>('hashcat_session_destroy').asFunction();
     final void Function(ffi.Pointer<hashcat_ctx_t>, int, int) goodbye_screen = dl.lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>, time_t, time_t)>>('goodbye_screen').asFunction();
 
-    final void Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<pffi.Utf8> char)>>) init_native_callback = dl.lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<pffi.Utf8> char)>>)>>('init_native_callback').asFunction();
-
+    // Check this gist for setting up native callback for dart:
+    // https://gist.github.com/espresso3389/be5674ab4e3154f0b7c43715dcef3d8d
+    // It needs to be done this way so that any thread in C can call back
+    // Dart_InitializeApiDL defined in Dart SDK (dart_api_dl.c)
+    final int Function(ffi.Pointer<ffi.Void>) Dart_InitializeApiDL = dl.lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>("Dart_InitializeApiDL").asFunction();
+    final void Function(int) init_native_callback = dl.lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('init_native_callback').asFunction();
     final ffi.Pointer<hashcat_ctx_t> Function() build_hashcat_ctx = dl.lookup<ffi.NativeFunction<ffi.Pointer<hashcat_ctx_t> Function()>>('build_hashcat_ctx').asFunction();
     final void Function(ffi.Pointer<hashcat_ctx_t>) free_hashcat_ctx = dl.lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<hashcat_ctx_t>)>>('free_hashcat_ctx').asFunction();
 
 
     // Initialize the native callback
-    init_native_callback(ffi.Pointer.fromFunction(printNativeCallback));
+    if (Dart_InitializeApiDL(ffi.NativeApi.initializeApiDLData) != 0) {
+      throw "Failed to initialize Dart API";
+    }
+    init_native_callback(args.sendPort.nativePort);
 
 
     // The text in green, like below, is the native code and comments from Hashcat
@@ -237,7 +237,7 @@ class HashcatInstance {
     /// if (user_options->version == true)
     if (user_options.ref.version == true) {
       /// printf ("%s\n", VERSION_TAG);
-      printNativeCallback(VERSION_TAG);
+      args.sendPort.send(VERSION_TAG);
 
       /// user_options_destroy (hashcat_ctx);
       user_options_destroy(hashcat_ctx);
