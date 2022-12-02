@@ -84,8 +84,8 @@ copyFiles(String platform, { androidArch='' }) {
   // Find Hashcat lib since it has version number and it could be dylib, so, or dll
   final hashcatLib = File(Directory(hashcatMobileDir).listSync().where((element) => element.path.contains('libhashcat')).first.path);
   final hashcatLibExtension = hashcatLib.path.split('/').last.split('.')[1];
-  final hashcatOpenCL = Directory(path.join(hashcatMobileDir, 'OpenCL'));
   final hashcatModules = Directory(path.join(hashcatMobileDir, 'modules'));
+  final hashcatOpenCL = Directory(path.join(hashcatMobileDir, 'OpenCL'));
 
   switch (platform) {
     case 'android': {
@@ -107,12 +107,60 @@ copyFiles(String platform, { androidArch='' }) {
       stdout.writeln('Copying libhashcat.so');
       hashcatLib.copySync(path.join(libDir.path, "libhashcat.$hashcatLibExtension"));
 
+      // Platform specific
+      stdout.writeln('Copying modules directory');
+      copyPathSync(hashcatModules.path, path.join(assetDir.path, 'modules'));
+
+      // Shared
       // OpenCL folder does NOT depend on the architecture
+      stdout.writeln('Copying root files');
+      final rootFiles = [
+        'example.dict',
+        'example0.cmd',
+        'example0.hash',
+        'example0.sh',
+        'example400.cmd',
+        'example400.hash',
+        'example400.sh',
+        'example500.cmd',
+        'example500.hash',
+        'example500.sh',
+        'hashcat.hcstat2',
+      ];
+      for (var element in rootFiles) {
+        copyPathSync(path.join(hashcatMobileDir, element), path.join(sharedDir.path, element));
+      }
+
       stdout.writeln('Copying OpenCL directory');
       copyPathSync(hashcatOpenCL.path, path.join(sharedDir.path, 'OpenCL'));
 
-      stdout.writeln('Copying modules directory');
-      copyPathSync(hashcatModules.path, path.join(assetDir.path, 'modules'));
+      stdout.writeln('Copying tunings directory');
+      final tunings = Directory(path.join(hashcatMobileDir, 'tunings'));
+      copyPathSync(tunings.path, path.join(sharedDir.path, 'tunings'));
+
+      stdout.writeln('Copying tools directory');
+      final tools = Directory(path.join(hashcatMobileDir, 'tools'));
+      copyPathSync(tools.path, path.join(sharedDir.path, 'tools'));
+
+      stdout.writeln('Copying rules directory');
+      final rules = Directory(path.join(hashcatMobileDir, 'rules'));
+      copyPathSync(rules.path, path.join(sharedDir.path, 'rules'));
+
+      stdout.writeln('Copying masks directory');
+      final masks = Directory(path.join(hashcatMobileDir, 'masks'));
+      copyPathSync(masks.path, path.join(sharedDir.path, 'masks'));
+
+      stdout.writeln('Copying layouts directory');
+      final layouts = Directory(path.join(hashcatMobileDir, 'layouts'));
+      copyPathSync(layouts.path, path.join(sharedDir.path, 'layouts'));
+
+      stdout.writeln('Copying docs directory');
+      final docs = Directory(path.join(hashcatMobileDir, 'docs'));
+      copyPathSync(docs.path, path.join(sharedDir.path, 'docs'));
+
+      stdout.writeln('Copying charsets directory');
+      final charsets = Directory(path.join(hashcatMobileDir, 'charsets'));
+      copyPathSync(charsets.path, path.join(sharedDir.path, 'charsets'));
       break;
     }
     case 'ios': throw Exception('iOS is not supported');
