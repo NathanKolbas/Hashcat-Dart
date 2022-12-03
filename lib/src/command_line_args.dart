@@ -9,7 +9,7 @@ import 'package:ffi/ffi.dart';
 /// **IMPORTANT**: Remember to call [free] to release the memory that has
 /// been allocated for the pointers when done.
 class CommandLineArgs {
-  final RegExp argsSplit = RegExp(r'([-a-zA-Z0-9]+)|(".*?[^\\]")|("")');
+  final RegExp argsSplit = RegExp(r'([-a-zA-Z0-9]+)|(".*?[^\\]")|("")|([/._\-a-zA-Z0-9]+)');
   late final List<Pointer<Utf8>> _args;
   late final Pointer<Pointer<Utf8>> argv;
   late final int argc;
